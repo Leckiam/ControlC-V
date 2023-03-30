@@ -1,0 +1,38 @@
+h1{
+    text-align: center;
+}
+#DisplayFondo{
+    margin: 0;
+    padding: 0;
+    background-image: url('../img/fondo.jpg');
+    background-size: cover;
+    font-family: sans-serif;
+    overflow: auto;
+}
+
+.capaGeneral{
+    float: left;
+    height: auto;
+    padding-top: 30px;
+    padding-bottom: 10px;
+    padding-left: 15%;
+    padding-right: 15%;
+}
+#CapaIntrod{
+    background-color: #c5c5c5;
+    border: #141414;
+    padding-left: 7%;
+    padding-right: 7%;
+    border-radius: 10%;
+    text-align: justify;
+    color: #ffffff;
+    font-size: 16px;
+}
+.capaEmp{
+    float: left;
+    height: auto;
+    padding-top: 30px;
+    padding-bottom: 10px;
+    padding-left: 25%;
+    padding-right: 25%;
+}
