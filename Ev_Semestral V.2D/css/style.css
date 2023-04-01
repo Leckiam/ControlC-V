@@ -1,0 +1,182 @@
+.ContenedorGen h1{
+    text-align: center;
+}
+
+.ContenedorGen{
+    margin: 0;
+    padding: 0;
+    background-image: url('../img/Fondos/Fondo_General.jpg');
+    background-size: cover;
+    font-family: sans-serif;
+    overflow: auto;
+}
+.ContenedorGenPS{
+    margin: 0;
+    padding: 0;
+    background-image: url('../img/Fondos/Fondo_PlayStation.jpg');
+    background-size: cover;
+    font-family: sans-serif;
+    overflow: auto;
+}
+.ContenedorGenXbox{
+    margin: 0;
+    padding: 0;
+    background-image: url('../img/Fondos/Fondo_Xbox.jpg');
+    background-size: cover;
+    font-family: sans-serif;
+    overflow: auto;
+}
+
+.capaGeneral{
+    float: left;
+    height: auto;
+    padding-top: 30px;
+    padding-bottom: 10px;
+    padding-left: 12%;
+    padding-right: 12%;
+}
+#CapaIntrod{
+    background: #da080885;
+    border: #141414;
+    padding-top: 3%;
+    padding-bottom: 3%;
+    padding-left: 7%;
+    padding-right: 7%;
+    text-align: justify;
+    color: #ffffff;
+    font-size: 16px;
+}
+.capaEmp{
+    float: left;
+    height: auto;
+    padding-top: 30px;
+    padding-bottom: 10px;
+    padding-left: 25%;
+    padding-right: 25%;
+}
+.opcion-menu:hover{
+    background: #61616128;
+}
+
+.login_box{
+    width: 320px;
+    height: 420px;
+    background: #000;
+    color: #fff;
+    top: 50%;
+    left: 50%;
+     position: absolute;
+     transform: translate(-50%, -50%);
+     box-sizing: border-box;
+     padding: 70px 30px;
+}
+
+.login_box h1{
+    margin: 0;
+    padding: 0 0 20px;
+    text-align: center;
+    font-size: 22px;
+}
+
+.login_box label{
+    margin: 0;
+    padding: 0;
+    font-weight: bold ;
+    display: block;
+}
+
+.login_box input{
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.login_box input[type="text"],
+.login_box input[type="password"]{
+    border: none;
+    border-bottom: 1px solid #fff;
+    background: transparent;
+    outline: none;
+    height: 40px;
+    color:#fff;
+    font-size: 16px;
+}
+
+.login_box input[type="submit"]{
+    border: none;
+    outline: none;
+    height: 40px;
+    background: #640477;
+    color: #fff;
+    font-size: 18px;
+    border-radius: 20px;
+}
+
+.login_box a{
+    text-decoration: none;
+    font-size: 12px ;
+    line-height: 20px;
+    color: darkorchid;
+}
+
+.register_box{
+    width: 320px;
+    height: 420;
+    background: #000;
+    color: #fff;
+    top: 50%;
+    left: 50%;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    box-sizing: border-box;
+    padding: 70px 30px;
+
+}
+
+.register_box h2{
+    margin: 0;
+    padding: 0 0 20px;
+    text-align: center;
+    font-size: 22px;
+}
+
+.register_box label{
+    margin: 0;
+    padding: 0;
+    font-weight: bold ;
+    display: block;
+}
+
+.register_box input{
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.register_box input[type="text"],
+.register_box input[type="password"],
+.register_box input[type="email"]{
+    border: none;
+    border-bottom: 1px solid #fff;
+    background: transparent;
+    outline: none;
+    height: 40px;
+    color:#fff;
+    font-size: 16px;
+}
+
+.register_box input[type="submit"]{
+    border: none;
+    outline: none;
+    height: 40px;
+    background: #640477;
+    color: #fff;
+    font-size: 18px;
+    border-radius: 20px;
+}
+
+.register_box a{
+    text-decoration: none;
+    font-size: 12px ;
+    line-height: 20px;
+    color: darkorchid;
+}
+
