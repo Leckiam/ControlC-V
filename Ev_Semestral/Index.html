@@ -32,10 +32,7 @@
                 </ul>
                 </li>
                 <li class="nav-item">
-                <a class="nav-link" href="#">Sobre Nosotros</a>
-                </li>
-                <li class="nav-item">
-                <a class="nav-link "href="Login.html">Iniciar Sesión</a>
+                <a class="nav-link" href="Login.html">Iniciar Sesión</a>
                 </li>
             </ul>
             <form class="d-flex" role="search">
@@ -47,18 +44,17 @@
         </nav>
     </div>
     <section class="capaGeneral">
-        <div>
-            <div id="CapaIntrod" class="rounded">
-                <h1>Introducción:</h1>
-                <p>RentGames es tu sitio de confiaza para que puedas divertirte un rato, aquí encontraras los juegos de tus 
-                    consolas favoritas y lo mejor de todo ¡con renta a domicilio! solo busca el que desees y nosotros te lo 
-                    llevamos..</p>
-            </div>
+        <div id="CapaIntrod" class="rounded">
+            <h1>Bienvenido/a:</h1>
+            <p>RentGames es tu sitio de confianza para que puedas divertirte un rato, aquí encontraras los juegos de tus 
+                consolas favoritas y lo mejor de todo ¡Con renta a domicilio! solo busca el que desees y nosotros te lo 
+                llevamos..</p>
         </div>
+        <br>
         <div class="card-group">
             <div class="card">
               <a href="PlayStation.html"><img src="img/Logo/PlayStation/Playstation_logo.png" class="card-img-top" alt=""></a> 
-              <div class="card-body text-primary">
+              <div class="card-body text-primary" id="GrayColor">
                 <h5 class="card-title">PlayStation Consolas</h5>
                 <ul class="card-text">
                     <li>PlayStation 4</li>
@@ -70,7 +66,7 @@
             </div>
             <div class="card">
               <a href="Xbox.html"><img src="img/Logo/Xbox/Xbox_logo.png" class="card-img-top" alt="..." ></a> 
-              <div class="card-body text-success">
+              <div class="card-body text-success" id="GrayColor">
                 <h5 class="card-title">Xbox Consolas</h5>
                 <ul class="card-text">
                     <li>Xbox 360</li>
@@ -81,7 +77,7 @@
             </div>
             <div class="card">
               <a href="Nintendo.html"><img src="img/Logo/Nintendo/Nintendo_Logo.png" class="card-img-top"alt="..."></a> 
-              <div class="card-body text-danger">
+              <div class="card-body text-danger" id="GrayColor">
                 <h5 class="card-title">Nintendo Consolas</h5>
                 <ul class="card-text">
                     <li>Nintendo DS</li>
@@ -91,6 +87,31 @@
                 <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small></p>
               </div>
             </div>
+        </div>
+        <br>
+        <div id="CapaIntrod" class="rounded-top">
+            <h1>Agregados recientes:</h1>
+        </div>
+        <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                <a><img src="img/Juegos/Horizontal/Xbox/Game_HaloInfinite.jpg" class="d-block w-100" alt="..." height="" width=""></a>
+              </div>
+              <div class="carousel-item">
+                <a><img src="img/Juegos/Horizontal/Xbox/Game_HaloGuardian5.jpg" class="d-block w-100" alt="..." height="" width=""></a>
+              </div>
+              <div class="carousel-item">
+                <a><img src="img/Juegos/Horizontal/Nintendo/Game_SuperSmashBros.jpg" class="d-block w-100" alt="..." height="" width=""></a>
+              </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Anterior</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Siguiente</span>
+            </button>
           </div>
     </section>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
