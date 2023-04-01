@@ -5,7 +5,15 @@
 .ContenedorGen{
     margin: 0;
     padding: 0;
-    background-image: url('../img/Fondos/Fondo_General.jpg');
+    background-image: url('../img/Fondos/Fondo_General.png');
+    background-size: contain;
+    font-family: sans-serif;
+    overflow: auto;
+}
+.ContenedorLogin{
+    margin: 0;
+    padding: 0;
+    background-image: url('../img/Fondos/Fondo_General.png');
     background-size: cover;
     font-family: sans-serif;
     overflow: auto;
@@ -13,7 +21,7 @@
 .ContenedorPS{
     margin: 0;
     padding: 0;
-    background-image: url('../img/Fondos/Fondo_PlayStation.jpg');
+    background-image: url('../img/Fondos/Fondo_PlayStation.png');
     background-size: cover;
     font-family: sans-serif;
     overflow: auto;
@@ -21,7 +29,7 @@
 .ContenedorXbox{
     margin: 0;
     padding: 0;
-    background-image: url('../img/Fondos/Fondo_Xbox.jpg');
+    background-image: url('../img/Fondos/Fondo_Xbox.png');
     background-size: cover;
     font-family: sans-serif;
     overflow: auto;
@@ -55,12 +63,10 @@
     font-size: 16px;
 }
 .capaEmp{
-    float: left;
-    height: auto;
-    padding-top: 30px;
-    padding-bottom: 10px;
-    padding-left: 25%;
-    padding-right: 25%;
+    padding-top: 350px;
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 .opcion-menu:hover{
     background: #61616128;
