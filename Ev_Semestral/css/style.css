@@ -12,7 +12,7 @@
     text-align: center;
     color: #83beb0;
 }
-.ContenedorGen p,li{
+.ContenedorGen .intr li{
     font-size: 18px;
     text-align: justify;
     color: #c0bcbc;
@@ -65,6 +65,10 @@
     padding-bottom: 3%;
     padding-left: 7%;
     padding-right: 7%;
+}
+#MaxAnchura{
+    padding-left: 5%;
+    padding-right: 5%;
 }
 #GrayColor{
     background-color: #4747472a;
@@ -124,24 +128,21 @@
 .opcion-menu:hover{
     background: #dd0c0c;
 }
-/* hola */
+/*Juegos para carro*/
 .contenedor{
     max-width: 1300px;
     padding: 0px;
     margin: auto;
     display: flex;
     justify-content: space-between;
-    /* oculto lo que queda fuera del .contenedor */
     contain: paint;
 }
-/* SECCION CONTENEDOR DE ITEMS */
 .contenedor .contenedor-items{
     margin-top: 30px;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
     grid-gap:30px;
     grid-row-gap: 30px;
-    /* width: 60%; */
     width: 100%;
     transition: .3s;
 }
@@ -187,7 +188,6 @@
     font-weight: bold;
     font-size: 17px;
 }
-
 .contenedor .contenedor-items .item .boton-item{
     display: block;
     font-weight: bold;
@@ -199,20 +199,7 @@
     border-radius: 5px;
     cursor: pointer;
 }
-/* SECCION RESPONSIVE */
-@media screen and (max-width: 850px) {
-    .contenedor {
-      display: block;
-    }
-    .contenedor-items{
-        width: 100% !important;
-    }
-    .carrito{
-        width: 100%;
-    }
-  }
-
-/**/
+/*Box Login*/
 .login_box{
     width: 320px;
     height: 420px;
@@ -225,21 +212,18 @@
      padding: 70px 30px;
      
 }
-
 .login_box h1{
     margin: 0;
     padding: 0 0 20px;
     text-align: center;
     font-size: 22px;
 }
-
 .login_box label{
     margin: 0;
     padding: 0;
     font-weight: bold ;
     display: block;
 }
-
 .login_box input{
     width: 100%;
     margin-bottom: 20px;
@@ -255,7 +239,6 @@
     color:#fff;
     font-size: 16px;
 }
-
 .login_box input[type="submit"]{
     border: none;
     outline: none;
@@ -265,13 +248,13 @@
     font-size: 18px;
     border-radius: 20px;
 }
-
 .login_box a{
     text-decoration: none;
     font-size: 12px ;
     line-height: 20px;
     color: darkorchid;
 }
+/*Box Register*/
 .register_box{
     width: 320px;
     height: 420;
@@ -284,21 +267,18 @@
     padding: 70px 30px;
 
 }
-
 .register_box h2{
     margin: 0;
     padding: 0 0 20px;
     text-align: center;
     font-size: 22px;
 }
-
 .register_box label{
     margin: 0;
     padding: 0;
     font-weight: bold ;
     display: block;
 }
-
 .register_box input{
     width: 100%;
     margin-bottom: 20px;
@@ -315,7 +295,6 @@
     color:#fff;
     font-size: 16px;
 }
-
 .register_box input[type="submit"]{
     border: none;
     outline: none;
@@ -325,7 +304,6 @@
     font-size: 18px;
     border-radius: 20px;
 }
-
 .register_box a{
     text-decoration: none;
     font-size: 12px ;
