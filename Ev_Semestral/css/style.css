@@ -7,12 +7,12 @@
     overflow: auto;
 }
 .ContenedorGen h1{
-    font-size: 38px;
+    font-size: 34px;
     text-decoration: underline;
     text-align: center;
     color: #83beb0;
 }
-.ContenedorGen .intr li{
+.ContenedorGen .intr p{
     font-size: 18px;
     text-align: justify;
     color: #c0bcbc;
@@ -21,7 +21,7 @@
     margin: 0;
     padding: 0;
     background-image: url('../img/Fondos/Fondo_General.png');
-    background-size: cover;
+    background-size: contain;
     font-family: sans-serif;
     overflow: auto;
 }
@@ -58,7 +58,7 @@
     padding-left: 12%;
     padding-right: 12%;
 }
-#CapaIntrod{
+.CapaIntrod{
     background: #192768e5;
     border: #141414;
     padding-top: 3%;
@@ -66,12 +66,15 @@
     padding-left: 7%;
     padding-right: 7%;
 }
-#MaxAnchura{
+.MaxAnchura{
     padding-left: 5%;
     padding-right: 5%;
 }
-#GrayColor{
-    background-color: #4747472a;
+.card-group .card{
+    background-color: #ececec;
+}
+.card-group a img{
+    background-color: #ffffff;
 }
 #CapaFooter{
     padding-top: 2%;
@@ -128,6 +131,14 @@
 .opcion-menu:hover{
     background: #dd0c0c;
 }
+@media screen and (max-width: 455px) {
+    .ContenedorGen h1{
+        font-size: 24px;
+    }
+    .ContenedorGen .intr p {
+        font-size: 13px;
+    }
+}
 /*Juegos para carro*/
 .contenedor{
     max-width: 1300px;
@@ -141,8 +152,8 @@
     margin-top: 30px;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    grid-gap:30px;
-    grid-row-gap: 30px;
+    grid-gap:15px;
+    grid-row-gap: 15px;
     width: 100%;
     transition: .3s;
 }
@@ -152,15 +163,15 @@
     padding: 20px;
     transition: .3s;
 }
-#backgroudPS{
+.backgroudPS{
     background-image: url('../img/Fondos/Fondo_PlayStation.png');
     background-size: cover;
 }
-#backgroudXB{
+.backgroudXB{
     background-image: url('../img/Fondos/Fondo_Xbox.png');
     background-size: cover;
 }
-#backgroudNT{
+.backgroudNT{
     background-color: #aa0707;
     background-size: cover;
 }
@@ -198,13 +209,13 @@
     border-radius: 5px;
     cursor: pointer;
 }
-#btnItemPS{
+#btnItemPS button{
     background-color: #01073a;
 }
-#btnItemXB{
+#btnItemXB button{
     background-color: #2c914ae1;
 }
-#btnItemNT{
+#btnItemNT button{
     background-color: #d69a18ad;
 }
 /* seccion carrito */
@@ -214,7 +225,6 @@
     border-radius: 10px;
     overflow: hidden;
     margin-bottom: auto;
-    position: sticky !important;
     top: 0;
     transition: .3s;
 }
@@ -338,19 +348,41 @@
 .carrito-total .btn-pagar:hover{
     scale: 1.05;
 }
+@media screen and (max-width: 455px) {
+    .carrito-total .fila{
+        font-size: 13px;
+    }
+    .ContenedorGen .intr p {
+        font-size: 13px;
+    }
+}
 
+@media screen and (max-width: 850px) {
+    .contenedor {
+      display: block;
+    }
+    .contenedor-items{
+        width: 100% !important;
+    }
+    .carrito{
+        width: 100%;
+    }
+  }
+#SectionLogReg{
+    padding-left: 5%;
+    padding-right: 5%;
+}
 /*Box Login*/
 .login_box{
     width: 320px;
     height: 420px;
     background: #000000;
-    color: #fff;
+    color: #ffffff;
     left: 50%;
-     position: absolute;
+     position: relative;
      transform: translate(-50%, 30%);
      box-sizing: border-box;
-     padding: 70px 30px;
-     
+     padding: 70px 30px;    
 }
 #RadiusLog{
     border-radius: 5px;
@@ -405,14 +437,21 @@
     line-height: 20px;
     color: darkorchid;
 }
+@media screen and (max-width: 320px) {
+    .login_box {
+      display: block;
+      width: 100%;
+      height: 50%;
+    }
+}
 /*Box Register*/
 .register_box{
     width: 380px;
-    height: 420;
+    height: 420px;
     background: #000;
     color: #fff;
     left: 50%;
-    position: absolute;
+    position: relative;
     transform: translate(-50%, 15%);
     box-sizing: border-box;
     padding: 70px 30px;
@@ -471,4 +510,11 @@
     font-size: 12px ;
     line-height: 20px;
     color: darkorchid;
+}
+@media screen and (max-width: 380px) {
+    .register_box {
+      display: block;
+      width: 100%;
+      height: 75%;
+    }
 }
