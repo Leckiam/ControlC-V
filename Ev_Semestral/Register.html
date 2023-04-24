@@ -42,30 +42,30 @@
         </div>
         </nav>
     <section id="SectionLogReg">
-        <div id="RadiusLog" class="register_box">
-            <form class="formulario">
+        <div class="register_box rounded-4">
+            <form class="formulario" action="procesar.php" enctype="multipart/form-data" method="GET" name="Register">
                 <img src="img/Logo/RentGames/Logo_RentGames.png" class="avatar" alt="Avatar Image">
                 <h2 class="titulo">REGISTRAR</h2>
     
                 <!--Usuario-->
-                <label for="username">Username:</label>
-                <input type="text" placeholder="Ingrese nombre de Usuario">
+                <label for="username">Usuario:</label>
+                <input type="text" id="username" placeholder="Ingrese nombre de Usuario">
     
                 <!--Correo-->
-                <label for="Correo">Correo</label>
-                <input type="email" placeholder="Ingrese Correo">
+                <label for="correo">Correo:</label>
+                <input type="email" id="correo" placeholder="Ingrese Correo">
 
                 <!--Comuna-->
                 <label for="comuna">Comuna:</label>
-                <input type="text" placeholder="Ingrese su Comuna">
+                <input type="text" id="comuna" placeholder="Ingrese su Comuna">
 
                 <!--Direccion-->
                 <label for="direccion">Direcci&oacute;n:</label>
-                <input type="text" placeholder="Ingrese su direcci&oacute;n">
+                <input type="text" id="direccion" placeholder="Ingrese su direcci&oacute;n">
     
                 <!--Contraseña-->
-                <label for="password">Password:</label>
-                <input type="password" placeholder="Ingrese Contraseña">
+                <label for="password">Contraseña:</label>
+                <input type="password" id="password" placeholder="Ingrese Contraseña">
     
             <input type="submit" value="Registrar">
             <a href="Login.html">¿Ya tienes cuenta? Ingresa aqui</a> <br>
