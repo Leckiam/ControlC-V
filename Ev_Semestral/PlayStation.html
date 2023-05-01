@@ -9,6 +9,7 @@
     integrity="sha384-aFq/bzH65dt+w6FI2ooMVUpc+21e0SRygnTpmBvdBgSdnuTN7QbdgL+OapgHtvPp" crossorigin="anonymous">
   <link rel="stylesheet" href="css/style.css">
   <title>RentGames</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
   <script src="JS/MyJs.js"></script>
 </head>
 
@@ -86,7 +87,7 @@
               <li>PlayStation 4</li>
               <li>PlayStation 3</li>
             </ul>
-            <button class="boton-item playS" id="ps-034" onclick="UpdatePrice(2)"">Agregar al Carrito</button>
+            <button class="boton-item playS" id="ps-034"">Agregar al Carrito</button>
           </div>
           <div class=" item backgroudPS">
               <span class="titulo-item">Dark Souls Remastered</span>
@@ -94,7 +95,7 @@
               <ul class="consola-item">
                 <li>PlayStation 4</li>
               </ul>
-              <button class="boton-item playS" id="ps-004" onclick="UpdatePrice(2)">Agregar al Carrito</button>
+              <button class="boton-item playS" id="ps-004">Agregar al Carrito</button>
           </div>
           <div class="item backgroudPS">
             <span class="titulo-item">Mortal Kombat X</span>
@@ -102,7 +103,7 @@
             <ul class="consola-item">
               <li>PlayStation 4</li>
             </ul>
-            <button class="boton-item playS" id="ps-004" onclick="UpdatePrice(2)">Agregar al Carrito</button>
+            <button class="boton-item playS" id="ps-004">Agregar al Carrito</button>
           </div>
           <div class="item backgroudPS">
             <span class="titulo-item">Ultra Street Fighter IV</span>
@@ -111,7 +112,7 @@
               <li>PlayStation 4</li>
               <li>PlayStation 3</li>
             </ul>
-            <button class="boton-item playS" id="ps-034" onclick="UpdatePrice(2)">Agregar al Carrito</button>
+            <button class="boton-item playS" id="ps-034">Agregar al Carrito</button>
           </div>
           <div class="item backgroudPS">
             <span class="titulo-item">Dragon Ball Z BUDOKAI TENKAICHI 3</span>
@@ -119,7 +120,7 @@
             <ul class="consola-item">
               <li>PlayStation 2</li>
             </ul>
-            <button class="boton-item playS" id="ps-200" onclick="UpdatePrice(0)">Agregar al Carrito</button>
+            <button class="boton-item playS" id="ps-200">Agregar al Carrito</button>
           </div>
         </div>
       </div>
@@ -127,17 +128,9 @@
         <div id="headerCarPS" class="header-carrito">
           <h2>Tu Carrito</h2>
         </div>
+        <div class="carrito-item">
+        </div>
         <div class="carrito-total">
-          <div class="fila">
-            <strong>Valor por dia</strong>
-            <span class="carrito-precio-dia">
-              $0 CLP
-            </span>
-          </div>
-          <div class="fila">
-            <strong>Total de dias</strong>
-            <span><input type="number" class="carrito-dias-total">dias</span>
-          </div>
           <div class="fila">
             <strong>Tu Total</strong>
             <span class="carrito-precio-total">
