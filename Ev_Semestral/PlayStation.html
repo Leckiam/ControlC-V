@@ -1,146 +1,153 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-aFq/bzH65dt+w6FI2ooMVUpc+21e0SRygnTpmBvdBgSdnuTN7QbdgL+OapgHtvPp" crossorigin="anonymous">
-    <link rel="stylesheet" href="css/style.css">
-    <title>RentGames</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-aFq/bzH65dt+w6FI2ooMVUpc+21e0SRygnTpmBvdBgSdnuTN7QbdgL+OapgHtvPp" crossorigin="anonymous">
+  <link rel="stylesheet" href="css/style.css">
+  <title>RentGames</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+  <script src="JS/MyJs.js"></script>
 </head>
-<body class="ContenedorPS">
+
+<body class="contenedorPS">
   <nav class="navbar navbar-expand-lg bg-dark" data-bs-theme="dark">
     <div class="container-fluid">
-        <a class="navbar-brand" href="Index.html"><img src="img/Logo/RentGames/LogoB_RentGames.png" class="card-img-top" alt="..." height="48"></a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <a class="navbar-brand" href="Index.html"><img src="img/Logo/RentGames/LogoB_RentGames.png"
+          class="card-img-top rounded-2" alt="..." height="48"></a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent" >
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-            <li class="nav-item">
+          <li class="nav-item">
             <a class="nav-link active" aria-current="page" href="Index.html">Inicio</a>
-            </li>
-            <li class="nav-item dropdown">
+          </li>
+          <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                Consolas
+              Consolas
             </a>
             <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="PlayStation.html">PlayStation</a></li>
-                <li><a class="dropdown-item" href="Xbox.html">Xbox</a></li>
-                <li><a class="dropdown-item" href="Nintendo.html">Nintendo</a></li>
+              <li><a class="dropdown-item" href="PlayStation.html">PlayStation</a></li>
+              <li><a class="dropdown-item" href="Xbox.html">Xbox</a></li>
+              <li><a class="dropdown-item" href="Nintendo.html">Nintendo</a></li>
             </ul>
-            </li>
-            <li class="nav-item">
+          </li>
+          <li class="nav-item">
             <a class="nav-link" href="Login.html">Iniciar Sesión</a>
-            </li>
+          </li>
         </ul>
         <form class="d-flex" role="search">
-            <input class="form-control me-2" type="search" placeholder="Buscar" aria-label="Search">
-            <button class="btn btn-outline-success" type="submit">Buscar</button>
+          <input class="form-control me-2" type="search" placeholder="Buscar" aria-label="Search">
+          <button class="btn btn-outline-success" type="submit">Buscar</button>
         </form>
-        </div>
+      </div>
     </div>
-    </nav>
-    <div class="capaEmp">
-      <div id="Empr_box_PS" class="rounded">
-        <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
-          <div class="carousel-inner">
-            <div class="carousel-item active">
-              <a href="PlayStation.html"><img src="img/Logo/PlayStation/Playstation_2_Logo.png" class="d-block w-100" alt="..."></a>
-            </div>
-            <div class="carousel-item">
-              <a href="PlayStation.html"><img src="img/Logo/PlayStation/PlayStation_3_logo.png" class="d-block w-100" alt="..."></a>
-            </div>
-            <div class="carousel-item">
-              <a href="PlayStation.html"><img src="img/Logo/PlayStation/PlayStation_4_Logo.png" class="d-block w-100" alt="..."></a>
-            </div>
+  </nav>
+  <div class="capaEmp">
+    <div id="empr_box_PS" class="rounded">
+      <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <a href="PlayStation.html"><img src="img/Logo/PlayStation/Playstation_2_Logo.png" class="d-block w-100"
+                alt="..."></a>
           </div>
-          <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Anterior</span>
-          </button>
-          <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Siguiente</span>
-          </button>
+          <div class="carousel-item">
+            <a href="PlayStation.html"><img src="img/Logo/PlayStation/PlayStation_3_logo.png" class="d-block w-100"
+                alt="..."></a>
+          </div>
+          <div class="carousel-item">
+            <a href="PlayStation.html"><img src="img/Logo/PlayStation/PlayStation_4_Logo.png" class="d-block w-100"
+                alt="..."></a>
+          </div>
         </div>
-      </div> <br><br>
-      <section class="capaGame">
-        <div class="contenedor">
-          <div class="contenedor-items" id="btnItemPS">
-            <div class="item backgroudPS">
-              <span class="titulo-item">Bloodborne</span>
-              <img src="img/Juegos/Vertical/PlayStation/Game_Bloodborne.png" alt="" class="img-item">
-              <ul class="consola-item">
-                <li>PlayStation 4</li>
-                <li>PlayStation 3</li>
-              </ul>
-              <button class="boton-item">Agregar al Carrito</button>
-              </div>
-            <div class="item backgroudPS">
-              <span class="titulo-item">Dark Souls Remastered</span>
-              <img src="img/Juegos/Vertical/PlayStation/Game_DarkSouls.png" alt="" class="img-item">
-              <ul class="consola-item">
-                <li>PlayStation 4</li>
-              </ul>
-              <button class="boton-item">Agregar al Carrito</button>
-            </div>
-            <div class="item backgroudPS">
-              <span class="titulo-item">Mortal Kombat X</span>
-              <img src="img/Juegos/Vertical/PlayStation/Game_MortalKombatX.png" alt="" class="img-item">
-              <ul class="consola-item">
-                <li>PlayStation 4</li>
-              </ul>
-              <button class="boton-item">Agregar al Carrito</button>
-            </div>
-            <div class="item backgroudPS">
-              <span class="titulo-item">Ultra Street Fighter IV</span>
-              <img src="img/Juegos/Vertical/PlayStation/Game_UltraStreetFighterIV.png" alt="" class="img-item">
-              <ul class="consola-item">
-                <li>PlayStation 4</li>
-                <li>PlayStation 3</li>
-              </ul>
-              <button class="boton-item">Agregar al Carrito</button>
-            </div>
-            <div class="item backgroudPS">
-              <span class="titulo-item">Dragon Ball Z BUDOKAI TENKAICHI 3</span>
-              <img src="img/Juegos/Vertical/PlayStation/Game_DragonBallZBT3.png" alt="" class="img-item">
-              <ul class="consola-item">
-                <li>PlayStation 2</li>
-              </ul>
-              <button class="boton-item">Agregar al Carrito</button>
-            </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying"
+          data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Anterior</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying"
+          data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Siguiente</span>
+        </button>
+      </div>
+    </div> <br><br>
+    <section class="capaGame">
+      <div class="contenedor">
+        <div class="contenedor-items" id="btnItemPS">
+          <div class="item backgroudP">
+            <span class="titulo-item">Bloodborne</span>
+            <img src="img/Juegos/Vertical/PlayStation/Game_Bloodborne.png" alt="" class="img-item">
+            <ul class="consola-item">
+              <li>PlayStation 4</li>
+              <li>PlayStation 3</li>
+            </ul>
+            <button class="boton-item P">Agregar al Carrito</button>
+          </div>
+          <div class=" item backgroudP">
+            <span class="titulo-item">Dark Souls Remastered</span>
+            <img src="img/Juegos/Vertical/PlayStation/Game_DarkSouls.png" alt="" class="img-item">
+            <ul class="consola-item">
+              <li>PlayStation 4</li>
+            </ul>
+            <button class="boton-item P">Agregar al Carrito</button>
+          </div>
+          <div class="item backgroudP">
+            <span class="titulo-item">Mortal Kombat X</span>
+            <img src="img/Juegos/Vertical/PlayStation/Game_MortalKombatX.png" alt="" class="img-item">
+            <ul class="consola-item">
+              <li>PlayStation 4</li>
+            </ul>
+            <button class="boton-item P">Agregar al Carrito</button>
+          </div>
+          <div class="item backgroudP">
+            <span class="titulo-item">Ultra Street Fighter IV</span>
+            <img src="img/Juegos/Vertical/PlayStation/Game_UltraStreetFighterIV.png" alt="" class="img-item">
+            <ul class="consola-item">
+              <li>PlayStation 4</li>
+              <li>PlayStation 3</li>
+            </ul>
+            <button class="boton-item P">Agregar al Carrito</button>
+          </div>
+          <div class="item backgroudP">
+            <span class="titulo-item">Dragon Ball Z BUDOKAI TENKAICHI 3</span>
+            <img src="img/Juegos/Vertical/PlayStation/Game_DragonBallZBT3.png" alt="" class="img-item">
+            <ul class="consola-item">
+              <li>PlayStation 2</li>
+            </ul>
+            <button class="boton-item P">Agregar al Carrito</button>
+          </div>
         </div>
+      </div>
+      <div class="carrito" id="carrito">
+        <div id="headerCarPS" class="header-carrito">
+          <h2>Tu Carrito</h2>
         </div>
-        <div class="carrito" id="carrito">
-          <div id="headerCarPS" class="header-carrito">
-              <h2>Tu Carrito</h2>
-          </div>
-          <div class="carrito-total">
-            <div class="fila">
-              <strong>Valor por dia</strong>
-              <span class="carrito-precio-total">
-                  $0 CLP
-              </span>
-          </div>
-          <div class="fila">
-              <strong>Total de dias</strong>
-              <span class="carrito-precio-total">
-                  0 Dias
-              </span>
-          </div>
+        <div class="carrito-item P">
+        </div>
+        <div class="carrito-total">
           <div class="fila">
             <strong>Tu Total</strong>
             <span class="carrito-precio-total">
-                $0 CLP
+              $0 CLP
             </span>
           </div>
           <button id="btnPagPS" class="btn-pagar">Pagar <i class="fa-solid fa-bag-shopping"></i> </button>
-          </div>
-        </div><br>
-      </section>
-    </div>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.min.js" integrity="sha384-heAjqF+bCxXpCWLa6Zhcp4fu20XoNIA98ecBC1YkdXhszjoejr5y9Q77hIrv8R9i" crossorigin="anonymous"></script>
+        </div>
+      </div><br>
+    </section>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+    integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.min.js"
+    integrity="sha384-heAjqF+bCxXpCWLa6Zhcp4fu20XoNIA98ecBC1YkdXhszjoejr5y9Q77hIrv8R9i"
+    crossorigin="anonymous"></script>
 </body>
+
 </html>
