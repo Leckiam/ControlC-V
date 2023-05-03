@@ -74,60 +74,62 @@
         </button>
       </div>
     </div> <br><br>
-    <section class="capaGame">
-      <div class="contenedor">
-        <div class="contenedor-items" id="btnItemNT">
-          <div class="item backgroudN">
-            <span class="titulo-item">Wii Sports Resort</span>
-            <img src="img/Juegos/Vertical/Nintendo/Game_WiiSportsResort.png" alt="" class="img-item">
-            <ul class="consola-item">
-              <li>Nintendo Wii</li>
-            </ul>
-            <button class="boton-item N">Agregar al Carrito</button>
-          </div>
-          <div class="item backgroudN">
-            <span class="titulo-item">Dragon Ball Z BUDOKAI TENKAICHI 3</span>
-            <img src="img/Juegos/Vertical/Nintendo/Game_DragonBallZBT3.png" alt="" class="img-item">
-            <ul class="consola-item">
-              <li>Nintendo Wii</li>
-            </ul>
-            <button class="boton-item N">Agregar al Carrito</button>
-          </div>
-          <div class="item backgroudN">
-            <span class="titulo-item">Super Smash Bros 3DS</span>
-            <img src="img/Juegos/Vertical/Nintendo/Game_SuperSmashBros3DS.png" alt="" class="img-item">
-            <ul class="consola-item">
-              <li>Nintendo 3DS</li>
-            </ul>
-            <button class="boton-item N">Agregar al Carrito</button>
-          </div>
-          <div class="item backgroudN">
-            <span class="titulo-item">New Super Mario Bros</span>
-            <img src="img/Juegos/Vertical/Nintendo/Game_NewSuperMarioBros.png" alt="" class="img-item">
-            <ul class="consola-item">
-              <li>Nintendo DS</li>
-            </ul>
-            <button class="boton-item N">Agregar al Carrito</button>
-          </div>
+    <section class="contenedor">
+      <div class="contenedor-items" id="btnItemNT">
+        <div class="item backgroudN">
+          <span class="titulo-item">Wii Sports Resort</span>
+          <img src="img/Juegos/Vertical/Nintendo/Game_WiiSportsResort.png" alt="" class="img-item">
+          <ul class="consola-item">
+            <li>Nintendo Wii</li>
+          </ul>
+          <button class="boton-item N">Agregar al Carrito</button>
+        </div>
+        <div class="item backgroudN">
+          <span class="titulo-item">Dragon Ball Z BUDOKAI TENKAICHI 3</span>
+          <img src="img/Juegos/Vertical/Nintendo/Game_DragonBallZBT3.png" alt="" class="img-item">
+          <ul class="consola-item">
+            <li>Nintendo Wii</li>
+          </ul>
+          <button class="boton-item N">Agregar al Carrito</button>
+        </div>
+        <div class="item backgroudN">
+          <span class="titulo-item">Super Smash Bros 3DS</span>
+          <img src="img/Juegos/Vertical/Nintendo/Game_SuperSmashBros3DS.png" alt="" class="img-item">
+          <ul class="consola-item">
+            <li>Nintendo 3DS</li>
+          </ul>
+          <button class="boton-item N">Agregar al Carrito</button>
+        </div>
+        <div class="item backgroudN">
+          <span class="titulo-item">New Super Mario Bros</span>
+          <img src="img/Juegos/Vertical/Nintendo/Game_NewSuperMarioBros.png" alt="" class="img-item">
+          <ul class="consola-item">
+            <li>Nintendo DS</li>
+          </ul>
+          <button class="boton-item N">Agregar al Carrito</button>
         </div>
       </div>
-      <div class="carrito" id="carrito">
-        <div id="headerCarNT" class="header-carrito">
-          <h2>Tu Carrito</h2>
-        </div>
-        <div class="carrito-item N">
-        </div>
-        <div class="carrito-total">
-          <div class="fila">
-            <strong>Tu Total</strong>
-            <span class="carrito-precio-total">
-              $0 CLP
-            </span>
-          </div>
-          <button id="btnPagNT" class="btn-pagar">Pagar <i class="fa-solid fa-bag-shopping"></i> </button>
-        </div>
-      </div><br>
     </section>
+    <div class="carrito" id="carrito">
+      <div class="header-carrito" id="headerCarNT">
+        <h2>Tu Carrito</h2>
+      </div>
+      <div class="carrito-items">
+      </div>
+      <div class="carrito-total">
+        <div class="fila">
+          <strong>Dias:</strong>
+          <span><input type="number" class="carrito-dias-total" value="3"></span>
+        </div>
+        <div class="fila">
+          <strong>Tu Total</strong>
+          <span class="carrito-precio-total">
+            $0 CLP
+          </span>
+        </div>
+        <button class="btn-pagar" id="btnPagNT">Pagar <i class="fa-solid fa-bag-shopping"></i> </button>
+      </div>
+    </div><br>
   </div>
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
     integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
