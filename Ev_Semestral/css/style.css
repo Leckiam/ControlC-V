@@ -240,12 +240,16 @@
 }
 
 .contenedor .contenedor-items .item .consola-item {
-    color: #ffffff;
-    padding-left: 14%;
+    border: #000e3a;
+    background: #ffffff;
     display: block;
-    text-align: justify;
+    text-align: center;
     font-weight: bold;
     font-size: 17px;
+    color: #000000;
+    margin: 0;
+    padding: 0;
+    
 }
 
 .contenedor .contenedor-items .item .boton-item {
@@ -363,11 +367,9 @@
     font-size: 18px;
     margin-bottom: 5px;
 }
-.carrito .carrito-item .carrito-item-detalles .generacion{
-    border: #000e3a;
-    background: #ffffff;
+.carrito .carrito-item .carrito-item-detalles .consola-item{
     text-align: center;
-    color: #000000;
+    color: #ffffff;
     margin: 0;
     padding: 0;
 }

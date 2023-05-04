@@ -11,7 +11,7 @@ function ready() {
     for (let i = 0; i < btnPagar.length; i++) {
         let buttonP = btnPagar[i];
         buttonP.addEventListener('click', function () {
-            alert('xd')
+            alert('Pagando...')
         });
     }
     /* Actualizar precio de juegos en carrito de las consolas PS, XB y NT*/
@@ -38,19 +38,16 @@ function limitTimeDay(inputDay) {
         alert('Los dias de renta no debende ser inferiores a los 3 dias')
     }
 }
-function obtenerPrecio(consola,estado) {
+function obtenerPrecio(consola) {
     let listaPrice = [100, 600, 1100];
     let listaGen3PS = ['n 2', 'n 3', 'n 4'];
-    let listaGen2XB = ['One', '360'];
+    let listaGen2XB = ['360', 'One'];
     let listaGen1NT = ['Wii', ' DS', '3DS'];
-    let cantGenConsole = consola.children;
-    let genConsole = cantGenConsole[0].innerText.substr(-3, 3);
-    let lastGenConsole = cantGenConsole[0].innerText.substr(0, 1);
+    let cantGenConsole = consola.value;
+    let genConsole = cantGenConsole.substr(-3, 3);
+    let lastGenConsole = cantGenConsole.substr(0, 1);
     let precio = 0;
     let pos = 0;
-    if (estado == true) {
-        genConsole = consola.value.substr(-3, 3);
-    }
     switch (lastGenConsole) {
         case 'P':
             pos = forPrice(listaGen3PS, genConsole);
@@ -78,7 +75,7 @@ function agregarAlCarritoClicked(event) {
     let item = button.parentElement;
     let titulo = item.getElementsByClassName('titulo-item')[0].innerText;
     const genConsole = item.getElementsByClassName('consola-item')[0];
-    let precio = obtenerPrecio(genConsole, false);
+    let precio = obtenerPrecio(genConsole);
     let imagenSrc = item.getElementsByClassName('img-item')[0].src;
     console.log(imagenSrc);
 
@@ -89,7 +86,7 @@ function agregarItemAlCarrito(titulo, precio, imagenSrc, genConsole) {
     item.classList.add = ('item');
     let initConsole = genConsole.innerText.substr(0, 1);
     let itemsCarrito = document.getElementsByClassName('carrito-items')[0];
-    let consoleChild = genConsole.children;
+    let consoleSelected = genConsole.value;
 
     let nombresItemsCarrito = itemsCarrito.getElementsByClassName('carrito-item-titulo');
     for (let i = 0; i < nombresItemsCarrito.length; i++) {
@@ -110,27 +107,16 @@ function agregarItemAlCarrito(titulo, precio, imagenSrc, genConsole) {
                         $${precio} CLP
                     </span>
                 </div>
-                <div class="fila form-floating">
-                    <select class="form-control generacion" name="generacion">`;
-    for (let i = 0; i < consoleChild.length; i++) {
-        itemCarritoContenido = itemCarritoContenido + (`<option>${consoleChild[i].innerText}</option>`);
-    }
-    itemCarritoContenido = itemCarritoContenido + (`<label for="generacion">Generacion de consola</label>
-                    </select>
+                <div class="fila">
+                    <span class="consola-item">
+                    ${consoleSelected}
+                    </span>
                 </div>
             </div>
         </div>
-    `);
+    `;
     item.innerHTML = itemCarritoContenido;
     itemsCarrito.append(item);
-    alert('hola')
-    let getGeneration = document.getElementsByClassName('generacion')[0];
-    getGeneration.addEventListener("change",function(){
-        alert('xd')
-        getGeneration.addEventListener("click",function(){
-            alert('bucle xd')
-        })
-    })
 
     actualizarTotalCarrito();
 }
