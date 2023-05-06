@@ -71,68 +71,70 @@
         </button>
       </div>
     </div><br><br>
-    <section class="capaGame">
-      <div class="contenedor">
-        <div class="contenedor-items" id="btnItemXB">
-          <div class="item backgroudX">
-            <span class="titulo-item">Halo Infinite</span>
-            <img src="img/Juegos/Vertical/Xbox/Game_HaloInfinite.png" alt="" class="img-item">
-            <ul class="consola-item">
-              <li>Xbox One</li>
-            </ul>
-            <button class="boton-item X">Agregar al Carrito</button>
-          </div>
-          <div class="item backgroudX">
-            <span class="titulo-item">Halo 5: Guardians</span>
-            <img src="img/Juegos/Vertical/Xbox/Game_Halo5Guardians.png" alt="" class="img-item">
-            <ul class="consola-item">
-              <li>Xbox One</li>
-            </ul>
-            <button class="boton-item X">Agregar al Carrito</button>
-          </div>
-          <div class="item backgroudX">
-            <span class="titulo-item">Dark Souls Remastered</span>
-            <img src="img/Juegos/Vertical/Xbox/Game_DarkSouls.png" alt="" class="img-item">
-            <ul class="consola-item">
-              <li>Xbox One</li>
-            </ul>
-            <button class="boton-item X">Agregar al Carrito</button>
-          </div>
-          <div class="item backgroudX">
-            <span class="titulo-item">Mortal Kombat X</span>
-            <img src="img/Juegos/Vertical/Xbox/Game_MortalKombatX.png" alt="" class="img-item">
-            <ul class="consola-item">
-              <li>Xbox One</li>
-            </ul>
-            <button class="boton-item X">Agregar al Carrito</button>
-          </div>
-          <div class="item backgroudX">
-            <span class="titulo-item">Ultra Street Fighter IV</span>
-            <img src="img/Juegos/Vertical/Xbox/Game_UltraStreetFighterIV.png" alt="" class="img-item">
-            <ul class="consola-item">
-              <li>Xbox 360</li>
-            </ul>
-            <button class="boton-item X">Agregar al Carrito</button>
-          </div>
+    <section class="contenedor">
+      <div class="contenedor-items" id="btnItemXB">
+        <div class="item backgroudX">
+          <span class="titulo-item">Halo Infinite</span>
+          <img src="img/Juegos/Vertical/Xbox/Game_HaloInfinite.png" alt="" class="img-item">
+          <select class="consola-item rounded-3">
+            <option>Xbox One</option>
+          </select>
+          <button class="boton-item">Agregar al Carrito</button>
+        </div>
+        <div class="item backgroudX">
+          <span class="titulo-item">Halo 5: Guardians</span>
+          <img src="img/Juegos/Vertical/Xbox/Game_Halo5Guardians.png" alt="" class="img-item">
+          <select class="consola-item rounded-3">
+            <option>Xbox One</option>
+          </select>
+          <button class="boton-item">Agregar al Carrito</button>
+        </div>
+        <div class="item backgroudX">
+          <span class="titulo-item">Dark Souls Remastered</span>
+          <img src="img/Juegos/Vertical/Xbox/Game_DarkSouls.png" alt="" class="img-item">
+          <select class="consola-item rounded-3">
+            <option>Xbox One</option>
+          </select>
+          <button class="boton-item">Agregar al Carrito</button>
+        </div>
+        <div class="item backgroudX">
+          <span class="titulo-item">Mortal Kombat X</span>
+          <img src="img/Juegos/Vertical/Xbox/Game_MortalKombatX.png" alt="" class="img-item">
+          <select class="consola-item rounded-3">
+            <option>Xbox One</option>
+          </select>
+          <button class="boton-item">Agregar al Carrito</button>
+        </div>
+        <div class="item backgroudX">
+          <span class="titulo-item">Ultra Street Fighter IV</span>
+          <img src="img/Juegos/Vertical/Xbox/Game_UltraStreetFighterIV.png" alt="" class="img-item">
+          <select class="consola-item rounded-3">
+            <option>Xbox 360</option>
+          </select>
+          <button class="boton-item">Agregar al Carrito</button>
         </div>
       </div>
-      <div class="carrito" id="carrito">
-        <div id="headerCarXB" class="header-carrito">
-          <h2>Tu Carrito</h2>
-        </div>
-        <div class="carrito-item X">
-        </div>
-        <div class="carrito-total">
-          <div class="fila">
-            <strong>Tu Total</strong>
-            <span class="carrito-precio-total">
-              $0 CLP
-            </span>
-          </div>
-          <button id="btnPagXB" class="btn-pagar">Pagar <i class="fa-solid fa-bag-shopping"></i> </button>
-        </div>
-      </div><br>
     </section>
+    <div class="carrito" id="carrito">
+      <div class="header-carrito" id="headerCarXB">
+        <h2>Tu Carrito</h2>
+      </div>
+      <div class="carrito-items">
+      </div>
+      <div class="carrito-total">
+        <div class="fila">
+          <strong>Dias:</strong>
+          <span><input type="number" class="carrito-dias-total" value="3"></span>
+        </div>
+        <div class="fila">
+          <strong>Tu Total</strong>
+          <span class="carrito-precio-total">
+            $0 CLP
+          </span>
+        </div>
+        <button class="btn-pagar" id="btnPagXB">Pagar <i class="fa-solid fa-bag-shopping"></i> </button>
+      </div>
+    </div><br>
   </div>
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
     integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
