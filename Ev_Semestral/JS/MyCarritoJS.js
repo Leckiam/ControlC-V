@@ -1,19 +1,27 @@
 if (document.readyState == 'loading') {
-    document.addEventListener('DOMContentLoaded', ready)
+    document.addEventListener('DOMContentLoaded', function(){
+        timeReady()
+    })
 } else {
-    ready();
+    timeReady();
 }
-const seeCarrito = document.getElementsByClassName('carrito')[0];
+function timeReady(){
+    let segundos = 0;
+    let tiempo = setInterval(function (){
+        segundos++;
+        if (segundos==4) {
+            clearInterval(tiempo);
+            ready();
+        }
+        }, 1000);
+}
 
 function ready() {
     /* Pagar carrito de PS, XB o NT*/
-    let btnPagar = document.getElementsByClassName('btn-pagar')
-    for (let i = 0; i < btnPagar.length; i++) {
-        let buttonP = btnPagar[i];
-        buttonP.addEventListener('click', function () {
-            alert('Pagando...')
-        });
-    }
+    let btnPagar = document.getElementsByClassName('btn-pagar')[0]
+    btnPagar.addEventListener('click', function () {
+        location.href = "PlayStation.html";
+    });
     /* Actualizar precio de juegos en carrito de las consolas PS, XB y NT*/
     let getDiaTotal = document.getElementsByClassName('carrito-dias-total')[0];
     getDiaTotal.addEventListener("input", function () {
@@ -26,6 +34,7 @@ function ready() {
         let button = botonesAgregarAlCarrito[i];
         button.addEventListener('click', agregarAlCarritoClicked);
     }
+    cantGame = document.getElementsByClassName('item').length;
 }
 
 function limitTimeDay(inputDay) {
@@ -71,6 +80,8 @@ function obtenerPrecio(consola) {
     return precio = listaPrice[pos];
 }
 function agregarAlCarritoClicked(event) {
+    let carrito = document.getElementById('carrito');
+    carrito.style.display = "block";
     let button = event.target;
     let item = button.parentElement;
     let titulo = item.getElementsByClassName('titulo-item')[0].innerText;
@@ -85,6 +96,13 @@ function agregarItemAlCarrito(titulo, precio, imagenSrc, genConsole) {
     let item = document.createElement('div');
     item.classList.add = ('item');
     let initConsole = genConsole.innerText.substr(0, 1);
+    if (initConsole=='P') {
+        initConsole='PS'
+    } else if (initConsole=='N') {
+        initConsole='NT'
+    } else {
+        initConsole='XB'
+    }
     let itemsCarrito = document.getElementsByClassName('carrito-items')[0];
     let consoleSelected = genConsole.value;
 
@@ -100,7 +118,7 @@ function agregarItemAlCarrito(titulo, precio, imagenSrc, genConsole) {
         <div class="carrito-item">
             <div class="carrito-item-detalles backgroud${initConsole}">
                 <span class="carrito-item-titulo">${titulo}</span>
-                <img src="${imagenSrc}" alt="">
+                <img src="${imagenSrc}" alt="" height="304">
                 <div class="fila">
                     <strong>Precio/dia: </strong>
                     <span class="carrito-item-precio">

@@ -9,6 +9,7 @@
         integrity="sha384-aFq/bzH65dt+w6FI2ooMVUpc+21e0SRygnTpmBvdBgSdnuTN7QbdgL+OapgHtvPp" crossorigin="anonymous">
     <link rel="stylesheet" href="css/style.css">
     <title>RentGames</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
 </head>
 
 <body class="contenedorLR">
@@ -55,30 +56,33 @@
                 <h2 class="titulo">Registrar aqui</h2>
                 <!--Usuario-->
                 <div class="m-3 form-floating">
-                    <input class="form-control" type="text" id="username" placeholder="Ingrese nombre de Usuario">
+                    <input class="form-control" type="text" name="username" id="username"
+                        placeholder="Ingrese nombre de Usuario">
                     <label for="username">Usuario:</label>
                 </div>
                 <!--Correo-->
                 <div class="m-3 form-floating">
-                    <input class="form-control" type="email" id="correo" placeholder="Ingrese Correo">
+                    <input class="form-control" type="email" name="correo" id="correo" placeholder="Ingrese Correo">
                     <label for="correo">Correo:</label>
                 </div>
                 <!--Comuna-->
                 <div class="m-3 form-floating">
-                    <input class="form-control" type="text" id="comuna" placeholder="Ingrese su Comuna">
+                    <input class="form-control" type="text" name="comuna" id="comuna" placeholder="Ingrese su Comuna">
                     <label for="comuna">Comuna:</label>
                 </div>
                 <!--Direccion-->
                 <div class="m-3 form-floating">
-                    <input class="form-control" type="text" id="direccion" placeholder="Ingrese su direcci&oacute;n">
+                    <input class="form-control" type="text" name="direccion" id="direccion"
+                        placeholder="Ingrese su direcci&oacute;n">
                     <label for="direccion">Direcci&oacute;n:</label>
                 </div>
                 <!--Contraseña-->
                 <div class="m-3 form-floating">
-                    <input class="form-control" type="password" id="password" placeholder="Ingrese Contraseña">
+                    <input class="form-control" type="password" name="password" id="password"
+                        placeholder="Ingrese Contraseña">
                     <label for="password">Contraseña:</label>
                 </div>
-                <input type="submit" value="Registrar">
+                <input type="submit" id="new-registro" value="Registrar">
                 <a href="Login.html">¿Ya tienes cuenta? Ingresa aqui</a> <br>
             </form>
         </div>

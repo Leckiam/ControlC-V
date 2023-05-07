@@ -204,17 +204,17 @@
 
 /*Fondo de juegos para compra*/
 /*Inicio*/
-.backgroudP {
+.backgroudPS {
     background: #0b055f;
     background-size: cover;
 }
 
-.backgroudX {
+.backgroudXB {
     background: #07aa45;
     background-size: cover;
 }
 
-.backgroudN {
+.backgroudNT {
     background: #aa0707;
     background-size: cover;
 }
@@ -288,6 +288,8 @@
     top: 0;
     transition: .3s;
     padding-left: -10%;
+
+    display: none;
 }
 
 .carrito .header-carrito {
@@ -344,6 +346,7 @@
     border-radius: 10px;
     transition: .3s;
     display: grid;
+    height: 490px;
     grid-template-rows: 1fr auto 40px;
 }
 
