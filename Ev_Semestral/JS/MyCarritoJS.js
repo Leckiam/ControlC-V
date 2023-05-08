@@ -9,18 +9,19 @@ function timeReady(){
     let segundos = 0;
     let tiempo = setInterval(function (){
         segundos++;
-        if (segundos==4) {
-            clearInterval(tiempo);
+        if (parseFloat(segundos/5)==parseInt(segundos/5)) {
             ready();
+        } else if (segundos==30) {
+            clearInterval(tiempo);
         }
-        }, 1000);
+    }, 1000);
 }
 
 function ready() {
     /* Pagar carrito de PS, XB o NT*/
     let btnPagar = document.getElementsByClassName('btn-pagar')[0]
     btnPagar.addEventListener('click', function () {
-        location.href = "PlayStation.html";
+        location.href = "Index.html";
     });
     /* Actualizar precio de juegos en carrito de las consolas PS, XB y NT*/
     let getDiaTotal = document.getElementsByClassName('carrito-dias-total')[0];

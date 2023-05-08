@@ -173,6 +173,14 @@
     }
 }
 
+#conten-nro-catalo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#conten-nro-catalo input {
+    text-align: center;
+}
 /*Juegos para carro*/
 .contenedor {
     max-width: 1300px;

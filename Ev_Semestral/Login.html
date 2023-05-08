@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="css/style.css">
     <title>RentGames</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
-    <script src="JS/LoginJS.js"></script>
+    <script src="JS/MyLogin.js"></script>
 </head>
 
 <body class="contenedorLR">
@@ -54,7 +54,7 @@
         <div class="login_box rounded-4">
             <img src="img/Logo/RentGames/Logo_RentGames.png" class="avatar" alt="Avatar Image">
             <h1>Ingresa aqui</h1>
-            <form action="Index.html" enctype="multipart/form-data" method="GET" name="Login">
+            <form action="Index.html" enctype="multipart/form-data" method="GET" name="Login" id="Login">
                 <!--Usuario-->
                 <div class="m-3 form-floating">
                     <input class="form-control" type="text" name="username" id="username"
@@ -67,7 +67,14 @@
                         placeholder="Ingrese Contraseña">
                     <label for="password">Contraseña:</label>
                 </div>
+                <div>
+                    <ul for="errorMensaje" id="errorMensaje" style="background: #ab2424; display: none;">
+                        <li value="1"></li>
+                        <li></li>
+                    </ul>
+                </div>
                 <input type="submit" id="iniciar-sesion" value="Ingresar">
+                <input type="reset" id="clean-login" value="Limpiar">
                 <a href="#">¿No recuerda su contraseña?</a> <br>
                 <a href="Register.html">¿No tienes una cuenta? ¡Crea una ahora!</a>
             </form>
