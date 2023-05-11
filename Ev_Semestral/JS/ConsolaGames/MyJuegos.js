@@ -26,10 +26,20 @@ $(document).ready(function () {
     buscarGameAPI(initConsola,listaUrl,1);
     $('#btnNroCatalo').on('blur',function(){
         $('.item').remove();
+        limitPage(this);
         buscarGameAPI(initConsola,listaUrl,$(this).val());
     })
 })
-
+function limitPage(inputPage) {
+    let valInputPage = parseInt($(inputPage).val());
+    if (valInputPage > 150) {
+        $(inputPage).val(150);
+        alert('Solo se puede ver hasta la pagina 150')
+    } else if (valInputPage < 1) {
+        $(inputPage).val(1);
+        alert('Solo se puede ver desde la pagina 1 hacia adelante')
+    }
+}
 function buscarGameAPI(consolaInit,lista_url,nro) {
     let idName = "#btnItem" + consolaInit
     $(idName).children().css("display", "none");
