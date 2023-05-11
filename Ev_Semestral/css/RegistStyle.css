@@ -24,7 +24,9 @@
     padding: 70px 30px;
 
 }
-
+.form-floating:not(.form-control:disabled)::before {
+    width: 0px;
+}
 .register_box .avatar {
     width: 100px;
     height: 100px;
