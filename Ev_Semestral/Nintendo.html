@@ -10,7 +10,7 @@
   <link rel="stylesheet" href="css/style.css">
   <title>RentGames</title>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
-  <script src="JS/MyJuegos.js"></script>
+  <script src="JS/ConsolaGames/MyJuegos.js"></script>
 </head>
 
 <body class="contenedorNint">
@@ -41,8 +41,8 @@
             <a class="nav-link" href="Login.html">Iniciar Sesión</a>
           </li>
         </ul>
-        <form class="d-flex" role="search">
-          <input class="form-control me-2" type="search" placeholder="Buscar" aria-label="Search">
+        <form class="d-flex" method="get" role="search" id="form-search">
+          <input class="form-control me-2" type="search" name="search" placeholder="Buscar" aria-label="Search">
           <button class="btn btn-outline-success" type="submit">Buscar</button>
         </form>
       </div>
@@ -75,10 +75,11 @@
       </div>
     </div> <br><br>
     <div id="conten-nro-catalo">
-      <input type="number" id="btnNroCatalo" value="1"></div>
+      <input type="number" id="btnNroCatalo" value="1">
+    </div>
     <section class="contenedor">
       <div class="contenedor-items" id="btnItemNT">
-        
+
       </div>
     </section>
     <div class="carrito" id="carrito">
@@ -98,11 +99,11 @@
             $0 CLP
           </span>
         </div>
-        <button class="btn-pagar" id="btnPagNT">Pagar <i class="fa-solid fa-bag-shopping"></i> </button>
+        <button class="btn-pagar" id="btnPagNT">Pagar</button>
       </div>
     </div><br>
   </div>
-  <script src="JS/MyCarritoJS.js"></script>
+  <script src="JS/ConsolaGames/MyCarrito.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
     integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
     crossorigin="anonymous"></script>

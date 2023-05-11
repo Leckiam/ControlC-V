@@ -7,10 +7,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-aFq/bzH65dt+w6FI2ooMVUpc+21e0SRygnTpmBvdBgSdnuTN7QbdgL+OapgHtvPp" crossorigin="anonymous">
-  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/ConsolaStyle.css">
   <title>RentGames</title>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
-  <script src="JS/MyJuegos.js"></script>
+  <script src="JS/ConsolaGames/MyJuegos.js"></script>
 </head>
 
 <body class="contenedorPS">
@@ -41,8 +41,8 @@
             <a class="nav-link" href="Login.html">Iniciar Sesión</a>
           </li>
         </ul>
-        <form class="d-flex" role="search">
-          <input class="form-control me-2" type="search" placeholder="Buscar" aria-label="Search">
+        <form class="d-flex" method="get" role="search" id="form-search">
+          <input class="form-control me-2" type="search" name="search" placeholder="Buscar" aria-label="Search">
           <button class="btn btn-outline-success" type="submit">Buscar</button>
         </form>
       </div>
@@ -78,11 +78,12 @@
       </div>
     </div>
     <div id="conten-nro-catalo">
-      <input type="number" id="btnNroCatalo" value="1"></div>
+      <input type="number" id="btnNroCatalo" value="1">
+    </div>
     <section class="contenedor">
       <!-- Contenedor de elementos -->
       <div class="contenedor-items" id="btnItemPS">
-        
+
       </div>
     </section>
     <!-- Carrito de Compras -->
@@ -90,7 +91,6 @@
       <div class="header-carrito" id="headerCarPS">
         <h2>Tu Carrito</h2>
       </div>
-
       <div class="carrito-items">
       </div>
       <div class="carrito-total">
@@ -104,11 +104,11 @@
             $0 CLP
           </span>
         </div>
-        <button class="btn-pagar" id="btnPagPS">Pagar <i class="fa-solid fa-bag-shopping"></i> </button>
+        <button class="btn-pagar" id="btnPagPS">Pagar</button>
       </div>
     </div><br>
   </div>
-  <script src="JS/MyCarritoJS.js"></script>
+  <script src="JS/ConsolaGames/MyCarrito.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
     integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
     crossorigin="anonymous"></script>
