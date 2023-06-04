@@ -7,12 +7,26 @@ def index(request):
     return render(request,'guests/index.html')
 
 def login(request):
-    guests= Guest.objects.all()
-    contexto={
-        'guests': guests
-    }
-    #agrego el contexto al retorno para que se vea en el template
-    return render(request, 'guests/login.html', contexto)
+    if request.method != "POST":
+        context={}
+        return render(request,'guests/login.html', context)
+    else:
+        #es un POST, por lo tanto se recuperan los datos del formulario
+        #y se graban
+        username=request.POST["username"]
+        password=request.POST["password"]
+        
+        guestTmp=Guest.objects.get(username=username)
+        
+        if (guestTmp.password==password):
+            context = {'guest': guestTmp}
+        else:
+            context={}
+        if guestTmp:
+            return render(request,'guests/login.html',context)
+        else:
+            context={}
+            return render(request, 'guests/login.html', context)
 
 def register(request):
     #si no es POST, se muestra formulario para agregar nuevos alumnos

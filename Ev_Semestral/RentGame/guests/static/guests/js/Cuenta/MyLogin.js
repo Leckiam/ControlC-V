@@ -1,32 +1,50 @@
 $(document).ready(function() {
-    let mensaje = "";
-    let estadoUser = false;
-    let estadoPass = false;
+    let listaEstado = [false,false];
+    let listaIds = ['username','password']
+    let listaName = ['nombre de usuario','contraseña']
+    for (let i = 0; i < listaIds.length; i++) {
+        $('#errorMensaje').append(`<li value="${i}"></li>`);
+        const idName = listaIds[i];
+        $('#'+idName).on('blur', function () {
+            validateColor(idName,i,listaEstado,listaName);
+        });
+    }
     $("#errorMensaje").children().hide();
     $("#errorMensaje").show();
-    $('#username').on('blur', function(){
-        mensaje = "El nombre está en blanco";
-        validarError('#username',mensaje,0,estadoUser);
-    });
-    $('#password').on('blur',function(){   
-        mensaje = "La contraseña está vacía";
-        validarError('#password',mensaje,1,estadoPass)
-    })
     $("#login").submit(function () {
-        if (estadoUser==false || estadoPass==false) {
-            event.preventDefault();
+        for (let i = 0; i < listaEstado.length; i++) {
+            let element = listaEstado[i];
+            if (element === false) {
+                for (let i = 0; i < listaIds.length; i++) {
+                    const idName = listaIds[i];
+                    validateColor(idName,i,listaEstado,listaName);
+                }
+                event.preventDefault();
+                break;
+            }
         }
     });
   });
 
-function validarError(id,msj,pos,estado){
-    if ($(id).val().trim().length == 0) {    
-        mensaje = msj;
-        $("#errorMensaje").children().eq(pos).html(msj)
+function mensajeError(idType,idName,pos,lista,name){
+    let msg = "No ha ingresado su ";
+    let valCondi = $(idType + idName).val().trim();
+    if (valCondi.length === 0){
+        msg = msg + name[pos];
+        $("#errorMensaje").children().eq(pos).html(msg)
         $("#errorMensaje").children().eq(pos).show();
-        estado = false;
+        lista[pos] = false;
     } else {
-        $("#errorMensaje").children().eq(1).hide();
-        estado=true;
+        $("#errorMensaje").children().eq(pos).hide();
+        lista[pos] = true;
+    }
+    console.log(lista[pos])
+    return lista[pos]
+}
+function validateColor(idName,pos,lisEst,lisName) {
+    if(mensajeError('#',idName,pos,lisEst,lisName)){
+        $('#'+idName).css('border-bottom', '1px solid green');
+    } else {
+        $('#'+idName).css('border-bottom', '1px solid red');
     }
 }
