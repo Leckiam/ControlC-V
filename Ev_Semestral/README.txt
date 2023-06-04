@@ -13,4 +13,5 @@ Detalles:
 -CodigoWeb      (Ayuda con carrito y otro tipo de card para los juegos en consolas)
 -Fazt           (Ayuda con vista de login y register)
 -ChatGPT        (Ayuda a la hora que quere resolver dudas de codificacion y diferenciar ejecucciones 
-                con js y jquary, ademas de ser de ayuda a la hora de encontrar una pagina que ofreciera alguna API Key)
+                con js y jquary. Además de ser de ayuda a la hora de encontrar una pagina que ofreciera alguna API Key.
+                Ayuda a la hora de trabajar con Django y encontrar el 'AbstractBaseUser' para hacer usuarios).
