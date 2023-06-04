@@ -1,0 +1,113 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-aFq/bzH65dt+w6FI2ooMVUpc+21e0SRygnTpmBvdBgSdnuTN7QbdgL+OapgHtvPp" crossorigin="anonymous">
+  <link rel="stylesheet" href="{% static 'guests/css/consolaStyle.css'%}">
+  <title>RentGames</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+  <script src="{% static 'guests/js/ConsolaGames/MyJuegos.js'%}"></script>
+</head>
+
+<body class="contenedorXbox">
+  <nav class="navbar navbar-expand-lg" style="background-color: #1b1b1b ;" data-bs-theme="dark">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="{% url 'index' %}"><img src="{% static 'guests/img/Logo/RentGames/LogoB_RentGames.png' %}"
+          class="card-img-top rounded-2" alt="" height="48"></a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="{% url 'index' %}">Inicio</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Consolas
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="{% url 'playStation' %}">PlayStation</a></li>
+              <li><a class="dropdown-item" href="{% url 'xbox' %}">Xbox</a></li>
+              <li><a class="dropdown-item" href="{% url 'nintendo' %}">Nintendo</a></li>
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'login' %}">Iniciar Sesión</a>
+          </li>
+        </ul>
+        <form class="d-flex" method="get" role="search" id="form-search">
+          <input class="form-control me-2" type="search" name="search" placeholder="Buscar" aria-label="Search">
+          <button class="btn btn-outline-success" type="submit">Buscar</button>
+        </form>
+      </div>
+    </div>
+  </nav>
+  <div class="capaEmp">
+    <div id="empr_box_Xbox" class="rounded">
+      <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <a href="#"><img src="{% static 'guests/img/Logo/Xbox/XboxOne_logo.png'%}" class="d-block w-100" alt="..."></a>
+          </div>
+          <div class="carousel-item">
+            <a href="#"><img src="{% static 'guests/img/Logo/Xbox/Xbox360_logo.png'%}" class="d-block w-100" alt="..."></a>
+          </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying"
+          data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Anterior</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying"
+          data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Siguiente</span>
+        </button>
+      </div>
+    </div><br><br>
+    <div id="conten-nro-catalo">
+      <input type="number" id="btnNroCatalo" value="1">
+    </div>
+    <section class="contenedor">
+      <div class="contenedor-items" id="btnItemXB">
+
+      </div>
+    </section>
+    <div class="carrito" id="carrito">
+      <div class="header-carrito" id="headerCarXB">
+        <h2>Tu Carrito</h2>
+      </div>
+      <div class="carrito-items">
+      </div>
+      <div class="carrito-total">
+        <div class="fila">
+          <strong>Dias:</strong>
+          <span><input type="number" class="carrito-dias-total" value="3"></span>
+        </div>
+        <div class="fila">
+          <strong>Tu Total</strong>
+          <span class="carrito-precio-total">
+            $0 CLP
+          </span>
+        </div>
+        <button class="btn-pagar" id="btnPagXB">Pagar</button>
+      </div>
+    </div><br>
+  </div>
+  <script src="{% static 'guests/js/ConsolaGames/MyCarrito.js'%}"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+    integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.min.js"
+    integrity="sha384-heAjqF+bCxXpCWLa6Zhcp4fu20XoNIA98ecBC1YkdXhszjoejr5y9Q77hIrv8R9i"
+    crossorigin="anonymous"></script>
+</body>
+
+</html>

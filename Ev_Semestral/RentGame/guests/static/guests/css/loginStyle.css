@@ -1,0 +1,92 @@
+/*Box Login*/
+.body-LR {
+    margin: 0;
+    padding: 0;
+    background-image: url('../img/Fondos/Fondo_General.png');
+    background-size: contain;
+    font-family: sans-serif;
+    overflow: auto;
+}
+
+#sectionLogReg {
+    padding-left: 5%;
+    padding-right: 5%;
+}
+.login_box {
+    width: 360px;
+    height: 0%;
+    background: #000000;
+    color: #ffffff;
+    left: 50%;
+    position: relative;
+    transform: translate(-50%, 30%);
+    box-sizing: border-box;
+    padding: 70px 30px;
+}
+
+.form-floating:not(.form-control:disabled)::before {
+    width: 0px;
+}
+
+.login_box .avatar {
+    width: 100px;
+    height: 100px;
+    border-radius: 20%;
+    position: absolute;
+    top: -50px;
+    left: calc(50% - 50px);
+}
+
+.login_box h1 {
+    margin: 0;
+    padding: 0 0 20px;
+    text-align: center;
+    font-size: 22px;
+}
+
+.login_box label {
+    margin: 0;
+    padding: 0;
+    display: block;
+}
+
+.login_box input {
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.login_box input[type="text"],
+.login_box input[type="password"] {
+    border: none;
+    border-bottom: 1px solid #fff;
+    background: transparent;
+    outline: none;
+    height: 40px;
+    color: #fff;
+    font-size: 16px;
+}
+
+.login_box input[type="submit"] {
+    border: none;
+    outline: none;
+    height: 40px;
+    background: #640477;
+    color: #fff;
+    font-size: 18px;
+    border-radius: 20px;
+}
+
+.login_box a {
+    text-decoration: none;
+    font-size: 12px;
+    line-height: 20px;
+    color: darkorchid;
+}
+
+@media screen and (max-width: 320px) {
+    .login_box {
+        display: block;
+        width: 100%;
+        height: 50%;
+    }
+}
