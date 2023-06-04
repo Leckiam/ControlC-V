@@ -1,0 +1,108 @@
+/*Estilo para el contenedor del Index*/
+/*Inicio*/
+.contenedorGen {
+    margin: 0;
+    padding: 0;
+    background-image: url('../img/Fondos/Fondo_General.png');
+    background-size: contain;
+    font-family: sans-serif;
+    overflow: auto;
+}
+
+.contenedorGen h1 {
+    font-size: 34px;
+    text-decoration: underline;
+    text-align: center;
+    color: #83beb0;
+}
+
+.contenedorGen .intr p {
+    font-size: 18px;
+    text-align: justify;
+    color: #c0bcbc;
+}
+
+.capaGeneral {
+    float: left;
+    height: auto;
+    padding-top: 30px;
+    padding-bottom: 10px;
+    padding-left: 12%;
+    padding-right: 12%;
+}
+
+.capaIntrod {
+    background: #192768;
+    border: #141414;
+    padding-top: 3%;
+    padding-bottom: 3%;
+    padding-left: 7%;
+    padding-right: 7%;
+}
+
+.maxAnchura {
+    padding-left: 5%;
+    padding-right: 5%;
+}
+
+.card-group .card {
+    background-color: #ececec;
+}
+
+.card-group a img {
+    background-color: #ffffff;
+}
+
+#capaFooter {
+    padding-top: 2%;
+    padding-bottom: 2%;
+    padding-left: 3%;
+    padding-right: 3%;
+    background-color: #192768;
+    color: #96f5dde0;
+}
+
+.capaGame {
+    position: absolute;
+    left: -5%;
+    right: -5%;
+    transform: translate(0%, 0%);
+}
+
+.colorBlack {
+    color: #000;
+}
+
+.colorBlack h1 {
+    color: #000;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.invisibleButton {
+    padding: 0;
+    margin: 0;
+    color: #727272;
+    text-decoration: none;
+    border: #00000000;
+    background-color: #00000000;
+}
+
+.invisible {
+    background-color: #00000000;
+}
+
+.opcion-menu:hover {
+    background: #dd0c0c;
+}
+
+@media screen and (max-width: 455px) {
+    .contenedorGen h1 {
+        font-size: 24px;
+    }
+
+    .contenedorGen .intr p {
+        font-size: 13px;
+    }
+}
+
