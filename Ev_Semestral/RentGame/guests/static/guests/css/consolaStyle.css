@@ -115,7 +115,7 @@
     padding: 20px;
     transition: .3s;
     display: grid;
-    grid-template-rows: 1fr auto 1fr;
+    grid-template-rows: 1fr auto 35px;
 }
 
 /*Fondo de juegos para compra*/
@@ -179,15 +179,26 @@
     cursor: pointer;
 }
 
-#btnItemPS button {
+#btnItemCliPS button {
     background-color: #01073a;
 }
 
-#btnItemXB button {
+#btnItemCliXB button {
     background-color: #2c914ae1;
 }
 
-#btnItemNT button {
+#btnItemCliNT button {
+    background-color: #d69a18ad;
+}
+#btnItemGuePS button {
+    background-color: #01073a;
+}
+
+#btnItemGueXB button {
+    background-color: #2c914ae1;
+}
+
+#btnItemGueNT button {
     background-color: #d69a18ad;
 }
 
@@ -262,8 +273,7 @@
     border-radius: 10px;
     transition: .3s;
     display: grid;
-    height: 490px;
-    grid-template-rows: 1fr auto 40px;
+    grid-template-rows: 1fr auto 35px;
 }
 
 .carrito .carrito-item .carrito-item-detalles img {
@@ -295,6 +305,17 @@
 .carrito .carrito-item .carrito-item-detalles option{
     background: #ffffff;
     color: #000000;
+}
+.carrito .carrito-item .carrito-item-detalles .btn-borrar{
+    display: block;
+    font-weight: bold;
+    margin: 6px auto;
+    border: none;
+    color: #fff;
+    width: 160px;
+    padding: 5px 14px;
+    border-radius: 5px;
+    cursor: pointer;
 }
 
 .carrito-total {

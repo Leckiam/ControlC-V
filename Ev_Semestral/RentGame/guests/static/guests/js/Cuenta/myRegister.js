@@ -1,7 +1,7 @@
 $(document).ready(function () {
     let listaEstado = [false,false,false,false,false,false,false];
-    let listaIds = ['username','password','dateNac','genero','telefono','correo','direccion']
-    let listaName = ['nombre de usuario','contraseña','fecha de nacimiento','genero','telefono','correo','direccion']
+    let listaIds = ['correo','nombre','password','dateNac','genero','telefono','direccion']
+    let listaName = ['correo','nombre','contraseña','fecha de nacimiento','genero','telefono','direccion']
     for (let i = 0; i < listaIds.length; i++) {
         $('#errorMensaje').append(`<li value="${i}"></li>`);
         const idName = listaIds[i];

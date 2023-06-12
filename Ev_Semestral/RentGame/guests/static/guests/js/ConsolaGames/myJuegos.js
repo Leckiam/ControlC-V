@@ -1,36 +1,24 @@
 $(document).ready(function () {
-    let urlValidate = "https://api.rawg.io/api/games?key=0ad66594af1341d28032732692211c55"
     // Enlace de info de videojuegos
-    let ulrPS = "https://api.rawg.io/api/games?key=0ad66594af1341d28032732692211c55&platforms=15%2C16%2C18";
-    let ulrPS2 = "https://api.rawg.io/api/games?key=0ad66594af1341d28032732692211c55&platforms=15%2C16%2C18&page=";
-    let ulrNT = "https://api.rawg.io/api/games?key=0ad66594af1341d28032732692211c55&platforms=8%2C9%2C11";
-    let ulrNT2 = "https://api.rawg.io/api/games?key=0ad66594af1341d28032732692211c55&platforms=8%2C9%2C11&page=";
-    let ulrXB = "https://api.rawg.io/api/games?key=0ad66594af1341d28032732692211c55&platforms=1%2C14";
-    let ulrXB2 = "https://api.rawg.io/api/games?key=0ad66594af1341d28032732692211c55&platforms=1%2C14&page=";
-    
-    let lista_url_PS = [ulrPS, ulrPS2];
-    let lista_url_NT = [ulrNT, ulrNT2];
-    let lista_url_XB = [ulrXB, ulrXB2];
+    let urlApi = "https://api.rawg.io/api/games?key=0ad66594af1341d28032732692211c55"
+    let listaTitulo=[]
 
     let initConsola = "";
-    let listaUrl = [];
-    if (document.getElementById('btnItemPS')) {
-        initConsola = "PS";
-        listaUrl = lista_url_PS;
-    } else if (document.getElementById('btnItemNT')) {
-        initConsola = "NT";
-        listaUrl = lista_url_NT;
-    } else if (document.getElementById('btnItemXB')) {
-        initConsola = "XB";
-        listaUrl = lista_url_XB;
+    let idName=$('.contenedor').children().first().attr('id')
+    initConsola=idName.substr(-2,2)
+    if (initConsola=='PS'){
+        urlApi+='&platforms=15%2C16%2C18';
+    } else if (initConsola=='NT'){
+        urlApi+='&platforms=8%2C9%2C11';
+    } else if (initConsola=='XB'){
+        urlApi+='&platforms=1%2C14';
     }
-    try{
-        buscarGameAPI(initConsola,listaUrl,1);
+    if(buscarGameAPI(idName,urlApi,1)){
         $('#btnNroCatalo').on('blur',function(){
             $('.item').remove();
-            buscarGameAPI(initConsola,listaUrl,$(this).val());
+            buscarGameAPI(idName,urlApi,$(this).val());
         })
-    }catch (error){
+    }else {
         if (initConsola == "PS") {
             listaTitulo=['Bloodborne','Dark Souls Remastered','Mortal Kombat X','Ultra Street Fighter IV','Dragon Ball Z BUDOKAI TENKAICHI 3']
             listaImg=['Bloodborne.png','DarkSouls.png','MortalKombatX.png','UltraStreetFighterIV.png','DragonBallZBT3.png']
@@ -44,30 +32,37 @@ $(document).ready(function () {
             listaImg=['WiiSportsResort.png','DragonBallZBT3.png','SuperSmashBros3DS.png','NewSuperMarioBros.png']
             listaGen=['Wii','Wii','3DS','DS']
         }
-        let idName = "#btnItem" + initConsola;
         for (let i = 0; i < listaTitulo.length; i++) {
             $(idName).append(localViewGame(listaTitulo[i],listaImg[i],listaGen[i],initConsola));
         }
     }
 })
 
-function buscarGameAPI(consolaInit,lista_url,nro) {
-    let idName = "#btnItem" + consolaInit
+function buscarGameAPI(idName,url,nro) {
+    idName = '#'+idName
+    let estApi = true;
+    let consolaInit = idName.substr(-2,2)
+    let estBtn = ''
+    if (idName.substr(-5,3)=='Gue'){
+        estBtn = 'disabled'
+    }
     $(idName).children().css("display", "none");
     if (nro==1) {
-        $.get(lista_url[0],
+        $.get(url,
             function (data) {
-                $.each(data.results, function(i,item){
-                    console.log(item)
-                    $(idName).append(addCarritoGame(consolaInit, item.name, item.platforms,item.background_image));
-                })
+                if (data){
+                    $.each(data.results, function(i,item){
+                        $(idName).append(addCarritoGame(consolaInit, item.name, item.platforms,item.background_image,estBtn));
+                    })
+                } else {
+                    estApi=false;
+                }
             });
     } else {
-        $.get(lista_url[1]+nro,
+        $.get(url+'&page='+nro,
             function (data) {
                 $.each(data.results, function(i,item){
-                    console.log(item)
-                    $(idName).append(addCarritoGame(consolaInit, item.name, item.platforms,item.background_image));
+                    $(idName).append(addCarritoGame(consolaInit, item.name, item.platforms,item.background_image,estBtn));
                 })
             });
     }
@@ -76,12 +71,13 @@ function buscarGameAPI(consolaInit,lista_url,nro) {
             for (let index = 0; index < 20; index++) {
                 $(idName).children().eq(index).css("display", "grid");
             }
-            clearInterval(tiempo)
+            clearInterval(tiempo);
         }
     },1000);
+    return estApi;
 }
 
-function addCarritoGame(init, titulo,genConsola,img) {
+function addCarritoGame(init, titulo,genConsola,img,estBtn) {
     let listagenConsola = ['n 2','n 3','n 4','3DS',' DS','Wii','360','One'];
     let existe = false;
     let itemCarritoContenido = `
@@ -102,7 +98,7 @@ function addCarritoGame(init, titulo,genConsola,img) {
     }
     itemCarritoContenido +=
         `</select>
-            <button class="boton-item" disabled>Agregar al Carrito</button>
+        <button class="boton-item ${estBtn}">Agregar al Carrito</button>
         </div>
     `;
     if (existe==false) {

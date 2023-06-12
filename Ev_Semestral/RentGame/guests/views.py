@@ -1,4 +1,6 @@
-from django.shortcuts import render
+from django.shortcuts import render,redirect
+from django.contrib.auth import authenticate,login,get_user_model
+from django.contrib.auth.models import User
 from .models import Cliente,Genero
 
 # Create your views here.
@@ -6,7 +8,7 @@ from .models import Cliente,Genero
 def index(request):
     return render(request,'guests/index.html')
 
-def login(request):
+def loginGue(request):
     if request.method != "POST":
         context={}
         return render(request,'guests/login.html', context)
@@ -15,23 +17,16 @@ def login(request):
         #y se graban
         username=request.POST["usernameLog"]
         password=request.POST["passwordLog"]
-        try:
-            clienteTmp=Cliente.objects.get(username=username)
-        except Cliente.DoesNotExist:
-            print('No tengo al Cliente')
-            return render(request, 'guests/login.html')
-        
-        if (clienteTmp.password==password):
-            print('Tengo al guest')
-            context = {'cliente': clienteTmp}
-            print(context)
-            return render(request,'clientes/index.html',context)
+        user=authenticate(username=username,password=password)
+        if (user):
+            print('Tengo al cliente ',user)
+            login(request,user)
+            return redirect(to='indexGue')
         else:
             print('No tengo al guest')
-            context={}
-            return render(request, 'guests/login.html', context)
+            return render(request, 'guests/login.html')
 
-def register(request):
+def registerGue(request):
     #si no es POST, se muestra formulario para agregar nuevos alumnos
     if request.method != "POST":
         generos=Genero.objects.all()
@@ -40,7 +35,7 @@ def register(request):
     else:
         #es un POST, por lo tanto se recuperan los datos del formulario
         #y se graban
-        username=request.POST["username"]
+        nombre=request.POST["nombre"]
         password=request.POST["password"]
         fecha_nacimiento=request.POST["dateNac"]
         genero=request.POST["genero"]
@@ -48,18 +43,32 @@ def register(request):
         email=request.POST["correo"]
         direccion=request.POST["direccion"]
         
+        usernameTmp=''
+        for i in email:
+            if i=='@':
+                break
+            else:
+                usernameTmp+=i
+        try:
+            objTmp=Cliente.objects.get(email = email)
+            return redirect(to='indexGue')
+        except:
+            user = User.objects.create_user(username=usernameTmp, password=password)
+            user.email = email
+            user.save()
+        
         objGenero=Genero.objects.get(id_genero=genero)
-        obj=Cliente.objects.create( username=username,
-                                  password=password,
-                                  fecha_nacimiento=fecha_nacimiento,
-                                  id_genero=objGenero,
-                                  telefono=telefono,
-                                  email=email,
-                                  direccion=direccion)
+        obj=Cliente.objects.create(email = email,
+                                   nombre = nombre,
+                                   ap_paterno = '',
+                                   ap_materno = '',
+                                   fecha_nacimiento = fecha_nacimiento,
+                                   id_genero = objGenero,
+                                   telefono = telefono,
+                                   direccion = direccion)
         obj.save()
-        context={'mensaje':"OK, datos grabados..."}
-        return render(request, 'guests/register.html', context)
-
+        print('Exito',obj)
+        return redirect(to='loginGue')
 
 def playStation(request):
     return render(request, 'guests/playStation.html')
