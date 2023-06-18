@@ -15,12 +15,13 @@ def logOutCli(request):
 
 def obtContext(req):
     context={}
+    clienteTmp=Cliente()
     generos=Genero.objects.all()
     try:
         clienteTmp=Cliente.objects.get(email=req.user.email)
         print(clienteTmp.imagen.url)
-        context={'cliente': clienteTmp,'generos':generos}
     except Cliente.DoesNotExist:
         print('No tengo al Cliente')
+    context={'cliente': clienteTmp,'generos':generos}
     return context
     

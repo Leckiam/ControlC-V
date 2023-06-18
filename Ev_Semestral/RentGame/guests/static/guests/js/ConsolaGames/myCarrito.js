@@ -38,7 +38,6 @@ function ready() {
         let btnAdd = btnsAddCarrito[i];
         btnAdd.addEventListener('click', agregarAlCarritoClicked);
     }
-    cantGame = document.getElementsByClassName('item').length;
 }
 
 function limitTimeDay(inputDay) {

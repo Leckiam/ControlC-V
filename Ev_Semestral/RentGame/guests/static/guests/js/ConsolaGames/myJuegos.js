@@ -23,17 +23,18 @@ $(document).ready(function () {
             listaTitulo=['Bloodborne','Dark Souls Remastered','Mortal Kombat X','Ultra Street Fighter IV','Dragon Ball Z BUDOKAI TENKAICHI 3']
             listaImg=['Bloodborne.png','DarkSouls.png','MortalKombatX.png','UltraStreetFighterIV.png','DragonBallZBT3.png']
             listaGen=['43','4','4','43','2']
-        } else if (initConsola == "NT"){
+        } else if (initConsola == "XB"){
             listaTitulo=['Halo Infinite','Halo 5: Guardians','Dark Souls Remastered','Mortal Kombat X','Ultra Street Fighter IV']
             listaImg=['HaloInfinite.png','Halo5Guardians.png','DarkSouls.png','MortalKombatX.png','UltraStreetFighterIV.png']
             listaGen=['One','One','One','One','360']
-        }else if (initConsola == "XB"){
+        }else if (initConsola == "NT"){
             listaTitulo=['Wii Sports Resort','Dragon Ball Z BUDOKAI TENKAICHI 3','Super Smash Bros 3DS','New Super Mario Bros']
             listaImg=['WiiSportsResort.png','DragonBallZBT3.png','SuperSmashBros3DS.png','NewSuperMarioBros.png']
-            listaGen=['Wii','Wii','3DS','DS']
+            listaGen=['Wii','Wii','3DS',' DS']
         }
         for (let i = 0; i < listaTitulo.length; i++) {
-            $(idName).append(localViewGame(listaTitulo[i],listaImg[i],listaGen[i],initConsola));
+            $('#'+idName).append(localViewGame(listaTitulo[i],listaImg[i],listaGen[i],initConsola));
+            console.log($('#'+idName))
         }
     }
 })
@@ -49,15 +50,16 @@ function buscarGameAPI(idName,url,nro) {
     $(idName).children().css("display", "none");
     if (nro==1) {
         $.get(url,
-            function (data) {
-                if (data){
-                    $.each(data.results, function(i,item){
-                        $(idName).append(addCarritoGame(consolaInit, item.name, item.platforms,item.background_image,estBtn));
-                    })
-                } else {
-                    estApi=false;
-                }
-            });
+        function (data) {
+            $.each(data.results, function(i,item){
+                $(idName).append(addCarritoGame(consolaInit, item.name, item.platforms,item.background_image,estBtn));
+            })
+            if (data.results.length<20){
+                console.log(data.results.length)
+                estApi=false;
+            }
+        });
+        
     } else {
         $.get(url+'&page='+nro,
             function (data) {
@@ -129,7 +131,7 @@ function localViewGame(titulo,img,Gen,init){
     let itemCarritoContenido = `
         <div class="item backgroud${init}">
             <span class="titulo-item">${titulo}</span>
-            <img src="img/Juegos/Vertical/${nameConsole.replace(' ','')}/Game_${img}" alt="" height="304" width="195" class="img-item">
+            <img src="http://127.0.0.1:8000/media/juegos/local/${nameConsole.replace(' ','')}/Game_${img}" alt="" height="304" width="195" class="img-item">
             <select class="consola-item rounded-3">`;
     for (let i = 0; i < cantGen; i++) {
             itemCarritoContenido += `<option>` + nameConsole +' '+ Gen.substr(i,1) +`</option>`

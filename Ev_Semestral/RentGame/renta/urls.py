@@ -22,6 +22,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('RentGame/', include('guests.urls')),
     path('RentGame/', include('clientes.urls')),
+    path('RentGame/', include('administrador.urls')),
 ]
 
 if settings.DEBUG:

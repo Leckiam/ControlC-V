@@ -1,0 +1,117 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-image: url('../img/Fondos/Fondo_Admin.jpg');
+    background-size: cover;
+    font-family: sans-serif;
+    overflow: auto;
+}
+
+.capaEmp {
+    position: absolute;
+    width: 80%;
+    left: 50%;
+    transform: translate(-50%, 10px);
+}
+#conten-nro-catalo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#conten-nro-catalo input {
+    text-align: center;
+}
+/*Juegos para carro*/
+.contenedor {
+    max-width: 1300px;
+    padding: 0px;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    contain: paint;
+}
+
+.contenedor .contenedor-items {
+    margin: 2.5% 1%;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    grid-gap: 15px;
+    grid-row-gap: 15px;
+    width: 100%;
+    transition: .3s;
+}
+
+.contenedor .contenedor-items .item {
+    border: 1px solid #666;
+    border-radius: 10px;
+    padding: 20px;
+    transition: .3s;
+    display: grid;
+    grid-template-rows: 1fr auto auto;
+}
+
+/*Fondo de juegos para compra*/
+/*Inicio*/
+.backgroudGame {
+    background: #3b3b3d;
+    background-size: cover;
+}
+
+/*Fin*/
+.contenedor .contenedor-items .item .img-item {
+    padding-bottom: 3%;
+    width: 100%;
+}
+
+.contenedor .contenedor-items .item:hover {
+    box-shadow: 0 0 10px #666;
+    scale: 1.05;
+}
+
+.contenedor .contenedor-items .item .titulo-item {
+    color: #ffffff;
+    padding-bottom: 3%;
+    display: block;
+    font-weight: bold;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.contenedor .contenedor-items .item .consola-item {
+    border: #000e3a;
+    background: #ffffff;
+    display: block;
+    text-align: center;
+    font-weight: bold;
+    font-size: 17px;
+    color: #000000;
+    margin: 0;
+    padding: 0;
+    
+}
+
+.contenedor .contenedor-items .item .boton-item {
+    display: block;
+    font-weight: bold;
+    margin: 6px auto;
+    border: none;
+    color: #fff;
+    padding: 5px 14px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#btnItem button {
+    background-color: #1b1b1b;
+}
+@media screen and (max-width: 920px) {
+    .contenedor .contenedor-items .item:hover {
+        scale: 1.03;
+    }
+
+    @media screen and (max-width: 610px) {
+        .contenedor .contenedor-items .item:hover {
+            scale: 1.01;
+        }
+    }
+}
