@@ -102,8 +102,9 @@
 .contenedor .contenedor-items {
     margin: 2.5% 1%;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(220px, 240px));
     grid-gap: 15px;
+    place-content: center;
     grid-row-gap: 15px;
     width: 100%;
     transition: .3s;
@@ -250,6 +251,7 @@
 .carrito .carrito-items {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(205px, 230px));
+    place-content: center;
     grid-gap: 15px;
     grid-row-gap: 15px;
     position: relative;

@@ -7,9 +7,9 @@ if (document.readyState == 'loading') {
 }
 function timeReady(){
     let tiempo = setInterval(function (){
-        let cantJuegos = document.getElementsByClassName('contenedor-items')[0].childElementCount
-        ready();
+        let cantJuegos = document.getElementsByClassName('contenedor-items')[0].childElementCount;
         if (cantJuegos==20) {
+            ready();
             clearInterval(tiempo);
         }
     }, 1000);
@@ -30,16 +30,6 @@ function ready() {
     btnCancelar.addEventListener('click',ocultarAddGame);
 }
 
-function limitTimeDay(inputDay) {
-    let valInputDay = parseInt(inputDay.value);
-    if (valInputDay > 21) {
-        inputDay.value = 21;
-        alert('Los dias de renta no debende superar los 21 dias')
-    } else if (valInputDay < 3) {
-        inputDay.value = 3;
-        alert('Los dias de renta no debende ser inferiores a los 3 dias')
-    }
-}
 function agregarJuegoClicked(event) {
     let miForm = document.getElementsByClassName("formulario")[0];
     eliminarInputsForm(miForm);
@@ -62,15 +52,27 @@ function agregarItemAlCarrito(id,titulo, imagenSrc, genConsole) {
 
     let itemCarritoContenido = `
         <input type="number" name="idGame" id="idGame" style="display:none;" value="${id}">
-        <input type="text" name="nombre" id="nombre" value="${titulo}">
-        <select class="consola-item rounded-3" name="idConsola" id="idConsola">
+        <div class="m-3 form-floating">
+            <input class="form-control" type="text" name="nombre" id="nombre" placeholder=" " value="${titulo}">
+            <label for="nombre">Nombre:</label>
+        </div>
+        <div class="m-3 form-floating">
+            <select class="consola-item form-select rounded-3" name="idConsola" id="idConsola">
     `;
     itemCarritoContenido += genConsole.innerHTML;
     itemCarritoContenido += `
-        <img src="${imagenSrc}" alt="" width="40" height="40">
+            </select>
+            <label for="idConsola">Consola:</label>
+        </div>
         <input type="text" name="urlImage" id="urlImage" style="display:none;" value="${imagenSrc}">
-        <input type="number" name="stock" id="stock" value="0">
-        <input type="number" name="precio" id="precio" value="0">
+        <div class="m-3 form-floating">
+            <input class="form-control" type="number" name="stock" id="stock" placeholder=" " value="0">
+            <label for="stock">Stock:</label>
+        </div>
+        <div class="m-3 form-floating">
+            <input class="form-control" type="number" name="precio" id="precio" placeholder=" " value="0">
+            <label for="precio">Precio:</label>
+        </div>
         <input type="submit" id="add-game" value="Agregar">
     `;
     

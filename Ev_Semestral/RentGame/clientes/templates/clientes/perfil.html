@@ -3,61 +3,69 @@
 
 
 {% block cssRG %}
-  <link rel="stylesheet" href="{% static 'guests/css/registStyle.css'%}">
+  <link rel="stylesheet" href="{% static 'clientes/css/perfilStyle.css'%}">
 {% endblock cssRG %}
 
 {% block scriptsHead %}
   <script src="{% static 'clientes/js/Cuenta/myPerfil.js'%}"></script>
 {% endblock scriptsHead %}
 
+
 {% block contenido %}
-<section id="sectionLogReg">
-  <div class="register_box rounded-4">
+<section id="sectionPerfil">
+  <div class="perfil_box rounded-4">
     <img src="{{cliente.imagen.url}}" class="avatar" alt="Avatar Image">
     <h2 class="titulo">{{user.username}}</h2>
-    <form class="formulario" action="" enctype="multipart/form-data" method="POST" name="register" id="register">
+    <form class="formulario" action="" enctype="multipart/form-data" method="POST" name="perfil" id="perfil">
         {% csrf_token %}
+        <!--Correo-->
+        <div class="m-3 form-floating">
+          <input class="form-control" type="email" id="correo" placeholder=" " value="{{user.email}}" disabled>
+          <label for="correo">Correo:</label>
+        </div>
+        <div class="m-3 form-floating" style="display:none;">
+          <input class="form-control" type="email" name="correo"placeholder=" " value="{{user.email}}">
+          <label for="correo">Correo:</label>
+        </div>
         <!--Nombre-->
         <div class="m-3 form-floating">
-            <input class="form-control" type="text" name="nombre" id="nombre"
-                placeholder=" " value='{{cliente.nombre}}'>
-            <label for="nombre">Nombre:</label>
+          <input class="form-control" type="text" name="nombre" id="nombre"
+            placeholder="Ingrese su nombre" value="{{cliente.nombre}}">
+          <label for="nombre">Nombre:</label>
         </div>
         <!--FechaNacimiento-->
         <div class="m-3 form-floating">
-            <input class="form-control" type="date" name="dateNac" id="dateNac"
-                placeholder=" " value='{{cliente.fecha_nacimiento|date:"Y-m-d"}}'>
-            <label for="dateNac">FechaNacimiento:</label>
+          <input class="form-control" type="date" name="dateNac" id="dateNac"
+            placeholder=" " style="height: auto;" value='{{cliente.fecha_nacimiento|date:"Y-m-d"}}'>
+          <label for="dateNac">FechaNacimiento:</label>
         </div>
         <!--Genero-->
         <div class="m-3 form-floating">
-            <select class="form-select" name="genero" id="genero">
-                {% for genero in generos %}
-                  {% if cliente.id_genero == genero.id_genero %}
-                    <option value="{{cliente.id_genero}}" selected>{{genero.genero}}</option>
-                  {% else %}
-                    <option value="{{genero.id_genero}}">{{genero.genero}}</option>
-                  {% endif %}
-                {% endfor %}
-            </select>
-            <label for="genero">Genero:</label>
+          <select class="form-select" name="genero" id="genero">
+              {% for genero in generos %}
+                {% if cliente.id_genero == genero.id_genero %}
+                  <option value="{{cliente.id_genero}}" selected>{{genero.genero}}</option>
+                {% else %}
+                  <option value="{{genero.id_genero}}">{{genero.genero}}</option>
+                {% endif %}
+              {% endfor %}
+          </select>
+          <label for="genero">Genero:</label>
         </div>
         <!--Telefono-->
         <div class="m-3 form-floating">
-            <input class="form-control" type="number" name="telefono" id="telefono" placeholder=" " value='{{cliente.telefono}}'>
-            <label for="telefono">Telefono:</label>
-        </div>
-        <!--Correo-->
-        <div class="m-3 form-floating">
-            <input class="form-control" type="email" name="correo" id="correo" placeholder=" " value='{{cliente.email}}'>
-            <label for="correo">Correo:</label>
+          <input class="form-control" type="number" name="telefono" id="telefono" placeholder=" " value="{{cliente.telefono}}">
+          <label for="telefono">Telefono:</label>
         </div>
         <!--Direccion-->
         <div class="m-3 form-floating">
-            <input class="form-control" type="text" name="direccion" id="direccion"
-                placeholder=" " value='{{cliente.direccion}}'>
-            <label for="direccion">Direcci&oacute;n:</label>
+          <input class="form-control" type="text" name="direccion" id="direccion"
+            placeholder=" " value="{{cliente.direccion}}">
+          <label for="direccion">Direcci&oacute;n:</label>
         </div>
+        <ul for="errorMensaje" id="errorMensaje" style="background: #ab2424; display: none;">
+        </ul>
+        <input type="submit" id="update-perfil" value="Modificar">
         <input type="reset" id="clean-perfil" value="Restaurar">
     </form>
   </div>

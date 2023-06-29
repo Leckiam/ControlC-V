@@ -50,50 +50,21 @@ function limitTimeDay(inputDay) {
         alert('Los dias de renta no debende ser inferiores a los 3 dias')
     }
 }
-function obtenerPrecio(consola) {
-    let listaPrice = [100, 600, 1100];
-    let listaGen3PS = ['n 2', 'n 3', 'n 4'];
-    let listaGen2XB = ['360', 'One'];
-    let listaGen1NT = ['Wii', ' DS', '3DS'];
-    let cantGenConsole = consola.value;
-    let genConsole = cantGenConsole.substr(-3, 3);
-    let lastGenConsole = cantGenConsole.substr(0, 1);
-    let precio = 0;
-    let pos = 0;
-    switch (lastGenConsole) {
-        case 'P':
-            pos = forPrice(listaGen3PS, genConsole);
-            break;
-        case 'X':
-            pos = forPrice(listaGen2XB, genConsole);
-            break;
-        case 'N':
-            pos = forPrice(listaGen1NT, genConsole);
-            break;
-    }
-    function forPrice(listaGen, genConsole) {
-        let numPrice = 0;
-        for (let i = 0; i < listaGen.length; i++) {
-            if (listaGen[i] == genConsole) {
-                return numPrice = i;
-            }
-        }
-    }
-    
-    return precio = listaPrice[pos];
-}
+
 function agregarAlCarritoClicked(event) {
     let carrito = document.getElementById('carrito');
     carrito.style.display = "block";
     let button = event.target;
     let item = button.parentElement;
+    let id = item.getElementsByClassName('id-item')[0].innerText;
     let titulo = item.getElementsByClassName('titulo-item')[0].innerText;
     let genConsole = item.getElementsByClassName('consola-item')[0];
-    let precio = obtenerPrecio(genConsole);
+    let precio = item.getElementsByClassName('precio-item')[0];
     let imagenSrc = item.getElementsByClassName('img-item')[0].src;
 
-    agregarItemAlCarrito(titulo, precio, imagenSrc, genConsole);
+    agregarItemAlCarrito(id,titulo, precio, imagenSrc, genConsole);
 }
+
 function eliminarItemCarrito(event){
     var buttonClicked = event.target;
     let divItem = buttonClicked.parentElement.parentElement.parentElement;
@@ -110,7 +81,7 @@ function ocultarCarrito(){
         carrito.style.display = 'none';
     }
 }
-function agregarItemAlCarrito(titulo, precio, imagenSrc, genConsole) {
+function agregarItemAlCarrito(id,titulo, precio, imagenSrc, genConsole) {
     let item = document.createElement('div');
     item.classList.add = ('item');
     let initConsole = genConsole.innerText.substr(0, 1);
@@ -135,6 +106,7 @@ function agregarItemAlCarrito(titulo, precio, imagenSrc, genConsole) {
     let itemCarritoContenido = `
         <div class="carrito-item">
             <div class="carrito-item-detalles backgroud${initConsole}">
+                <div class="id-item" style="display:none;">${id}</div>
                 <span class="carrito-item-titulo">${titulo}</span>
                 <img src="${imagenSrc}" alt="" height="304">
                 <div class="fila">

@@ -30,11 +30,17 @@
             <a class="nav-link" href="{% url 'loginGue' %}">Iniciar Sesión</a>
             {% endif %}
             </li>
-            <li class="nav-item">
-                {% if user.is_superuser %}
-                <a class="nav-link" href="{% url 'gameListAdm' %}">Ingresar Juegos</a>
-                {% endif %}
+            {% if user.is_superuser %}
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    Gestionar Juegos
+                </a>
+                <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="{% url 'gameAddAdm' %}">Añadir Juegos</a></li>
+                    <li><a class="dropdown-item" href="{% url 'gameEditAdm' %}">Modificar Juegos</a></li>
+                </ul>
             </li>
+            {% endif %}
         </ul>
         {% if user.is_authenticated %}
         <ul class="navbar-nav mb-2 mb-lg-0">

@@ -1,0 +1,41 @@
+{% extends "clientes/blockGlobal/base.html" %}
+{% load static %}
+
+{% block cssRG %}
+  <link rel="stylesheet" href="{% static 'administrador/css/adminStyle.css'%}">
+  <link rel="stylesheet" href="{% static 'administrador/css/addGameStyle.css'%}">
+{% endblock cssRG %}
+
+{% block scriptsHead %}
+  <script src="{% static 'administrador/js/ConsolaGames/myJuegos.js'%}"></script>
+{% endblock scriptsHead %}
+
+{% block scriptsBody %}
+  <script src="{% static 'administrador/js/ConsolaGames/myAddGame.js'%}"></script>
+{% endblock scriptsBody %}
+
+{% block contenido %}
+{% if user.is_superuser %}
+<div class="capaEmp" id="capaGame">
+    <div id="conten-nro-catalo">
+      <input type="number" id="btnNroCatalo" value="1">
+    </div>
+    <section class="contenedor">
+      <!-- Contenedor de elementos -->
+      <div class="contenedor-items" id="btnItem">
+  
+      </div>
+    </section>
+</div>
+<div class="addJuego_Fondo rounded-4" id="addJuego_Fondo">
+  <div class="addJuego_Box rounded-4" id="addJuego_Box" style="display:none;">
+    <img src="" class="avatar" alt="Avatar Image">
+    <h2 class="titulo">Añadir juego</h2>
+    <form class="formulario" action="" enctype="multipart/form-data" method="POST" name="AddGame" id="AddGame">
+      {% csrf_token %}
+    </form>
+    <button class="btn-cancel" id="btn-cancel">Cancelar</button>
+  </div><br>
+</div>
+{% endif %}
+{% endblock %}

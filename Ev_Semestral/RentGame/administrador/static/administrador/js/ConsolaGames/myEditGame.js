@@ -1,84 +1,141 @@
 if (document.readyState == 'loading') {
     document.addEventListener('DOMContentLoaded', function(){
-        timeReady()
+        ready()
     })
 } else {
-    timeReady();
-}
-function timeReady(){
-    let tiempo = setInterval(function (){
-        let cantJuegos = document.getElementsByClassName('contenedor-items')[0].childElementCount
-        ready();
-        if (cantJuegos==20) {
-            clearInterval(tiempo);
-        }
-    }, 1000);
+    ready();
 }
 
 function ready() {
     let myJuegos = document.getElementById('btnNroCatalo')
     myJuegos.addEventListener('blur',function(){
-        timeReady();
+        ready();
     });
     /* Agregar juegos de PS, XB y NT*/
-    let btnsAddCarrito = document.getElementsByClassName('boton-item');
-    for (let i = 0; i < btnsAddCarrito.length; i++) {
-        let btnAdd = btnsAddCarrito[i];
-        btnAdd.addEventListener('click', agregarJuegoClicked);
+    let btnsEditJuego = document.getElementsByClassName('boton-item');
+    for (let i = 0; i < btnsEditJuego.length; i++) {
+        let btnEdit = btnsEditJuego[i];
+        btnEdit.addEventListener('click', modificarJuegoClicked);
+    }
+    let consolaItem = document.getElementsByClassName('consola-item');
+    for (let i = 0; i < consolaItem.length; i++) {
+        let btnEdit = consolaItem[i];
+        btnEdit.addEventListener('change', changeFormClicked);
+    }
+    let formDeleteClass = document.getElementsByClassName('form-delete');
+    for (let i = 0; i < formDeleteClass.length; i++) {
+        let formDelete = formDeleteClass[i];
+        formDelete.addEventListener('submit',function (event){
+            if (formDelete.childElementCount!=4){
+                event.preventDefault()
+            }
+        });
+    }
+    let btnCancelar = document.getElementsByClassName('btn-cancel')[0];
+    btnCancelar.addEventListener('click',ocultarEditGame);
+}
+
+function modificarJuegoClicked(event) {
+    let miForm = document.getElementsByClassName("form-update")[0];
+    let csrf = miForm.elements[0];
+    miForm.innerHTML='';
+    miForm.appendChild(csrf)
+    /* Rescatar los datos del item (Juego) seleccionado */
+    let listaDatoGame=llamarDatoBtn(event);
+
+    mostrarEditGame(listaDatoGame[3]);
+    listaDML=[miForm,'','Modificar']
+    valor=listaDatoGame[2].value
+    modificarItemAlForm(listaDatoGame,listaDML,valor);
+}
+
+function updateStockPrecio(item,select){
+    let stock = item.getElementsByClassName('stock-item')[0]
+    let precio = item.getElementsByClassName('precio-item')[0]
+    let listaStock = item.getElementsByClassName('stock-array')[0].value
+    let listaprecio = item.getElementsByClassName('precio-array')[0].value
+    listaStock = eval(listaStock);
+    listaprecio = eval(listaprecio);
+    for (let i = 0; i < select.options.length; i++) {
+        const consola = listaStock[i][1];
+        if (select.value==consola) {
+            stock.value =listaStock[i][0]
+            precio.value =listaprecio[i][0]
+        }
     }
 }
 
-function limitTimeDay(inputDay) {
-    let valInputDay = parseInt(inputDay.value);
-    if (valInputDay > 21) {
-        inputDay.value = 21;
-        alert('Los dias de renta no debende superar los 21 dias')
-    } else if (valInputDay < 3) {
-        inputDay.value = 3;
-        alert('Los dias de renta no debende ser inferiores a los 3 dias')
-    }
+function changeFormClicked(event) {
+    let miForm = document.getElementsByClassName("form-delete")[0];
+    /* Rescatar los datos del item (Juego) seleccionado */
+    let select = event.target;
+    item = select.parentElement;
+
+    let nameConsola = select.options[select.selectedIndex].textContent;
+    miForm.elements[2].value = nameConsola;
+
+    updateStockPrecio(item,select)
 }
-function agregarJuegoClicked(event) {
-    let miForm = document.getElementsByClassName("formulario")[0];
-    eliminarInputsForm(miForm);
-    let juego = document.getElementById('addJuego_Box');
-    juego.style.display = "block";
-    let button = event.target;
-    let item = button.parentElement;
+
+function llamarDatoBtn(event){
+    let listaReturn=[];
+    let eventTarget = event.target;
+    let item = eventTarget.parentElement;
     let id = item.getElementsByClassName('id-item')[0].innerText;
     let titulo = item.getElementsByClassName('titulo-item')[0].innerText;
     let genConsole = item.getElementsByClassName('consola-item')[0];
+    let stock = item.getElementsByClassName('stock-item')[0].value;
+    let precio = item.getElementsByClassName('precio-item')[0].value;
     let imagenSrc = item.getElementsByClassName('img-item')[0].src;
-
-    agregarItemAlCarrito(id,titulo,imagenSrc, genConsole);
+    return listaReturn=[id,titulo,genConsole,imagenSrc,stock,precio];
 }
 
-function agregarItemAlCarrito(id,titulo, imagenSrc, genConsole) {
+function modificarItemAlForm(listaDatoGame,listaDML,valor) {
     let item = document.createElement('div');
     item.classList.add = ('item');
-    let itemsCarrito = document.getElementsByClassName('formulario')[0];
+    let itemsCarrito = listaDML[0];
 
     let itemCarritoContenido = `
-        <input type="number" name="idGame" id="idGame" value="${id}">
-        <select class="consola-item rounded-3" name="idConsola" id="idConsola">
+        <input type="number" name="idGame" id="idGame" style="display:none;" value="${listaDatoGame[0]}">
+        <input type="text" name="nombre" id="nombre" style="${listaDML[1]}" value="${listaDatoGame[1]}">
+        <select class="consola-item rounded-3" name="idConsola" style="${listaDML[1]}" id="idConsola">
     `;
-    itemCarritoContenido += genConsole.innerHTML;
+    itemCarritoContenido += listaDatoGame[2].innerHTML;
     itemCarritoContenido += `
-        <input type="text" name="nombre" id="nombre" value="${titulo}">
-        <img src="${imagenSrc}" alt="" width="40" height="40">
-        <input type="text" name="urlImage" id="urlImage" style="display:none;" value="${imagenSrc}">
-        <input type="number" name="stock" id="stock" value="0">
-        <input type="number" name="precio" id="precio" value="0">
-        <input type="submit" id="add-game" value="¿Esta seguro?">
+        </select>
+        <img src="${listaDatoGame[3]}" style="display:none;" alt="" width="40" height="40">
+        <input type="text" name="urlImage" id="urlImage" style="display:none;" value="${listaDatoGame[3]}">
+        <input type="number" name="stock" id="stock" style="${listaDML[1]}" value="${listaDatoGame[4]}">
+        <input type="number" name="precio" id="precio" style="${listaDML[1]}" value="${listaDatoGame[5]}">
+        <input type="submit" id="add-game" name="submitInput" value="${listaDML[2]}">
     `;
-    
     item.innerHTML = itemCarritoContenido;
+    let select= item.getElementsByClassName('consola-item')[0];
+    select.value =valor;
+    let consolaItem = item.getElementsByClassName('consola-item')[0];
+    consolaItem.addEventListener('change', function(){
+        updateStockPrecio(item,select)
+    });
     itemsCarrito.append(item);
-    
+}
+function mostrarEditGame(src){
+    /* Ocultar los juegos, borrar los inputs del formulario y 
+    mostrar los datos seleccionados para Django */
+    let viewJuegos = document.getElementById("capaGame")
+    let addJuego = document.getElementById('addJuego_Box');
+    var imagen = document.getElementsByClassName("avatar")[0];
+    imagen.src = src;
+
+    viewJuegos.style.display = 'none';
+    addJuego.style.display = "block";
 }
 
-function eliminarInputsForm(miForm){
-    for (let i = 1; i < miForm.length; i++) {
-        miForm.removeChild(miForm.children[i])
-    }
+function ocultarEditGame(event){
+    let button = event.target;
+    let itemAdd = button.parentElement;
+    let viewJuegos = document.getElementById("capaGame");
+
+    itemAdd.style.display='none';
+    viewJuegos.style.display='block';
+    
 }

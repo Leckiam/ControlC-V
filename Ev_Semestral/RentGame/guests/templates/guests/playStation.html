@@ -56,7 +56,20 @@
     <!-- Contenedor de elementos -->
     {% if user.is_authenticated %}
     <div class="contenedor-items" id="btnItemCliPS">
-
+      {% if catalogo %}
+        {% for catalogoPS in catalogo %}
+          <div class="item backgroudPS">
+            <span class="titulo-item">{{catalogoPS.nombre}}</span>
+            <img src="{{catalogoPS.imagen.url}}" alt="" height="304" width="195" class="img-item">
+            <select class="consola-item rounded-3">
+              {% for consola in catalogoPS.idConsola %}
+              <option value="{{consola.idConsola}}">{{consola.nombre}}</option>
+              {% endfor %}
+            </select>
+            <button class="boton-item">Agregar al Carrito</button>
+          </div>
+        {% endfor %}
+      {% endif %}
     </div>
     {% else %}
     <div class="contenedor-items" id="btnItemGuePS">

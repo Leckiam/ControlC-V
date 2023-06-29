@@ -8,4 +8,5 @@ urlpatterns = [
     path('playStation/', views.playStation,name='playStationGue'),
     path('xbox/', views.xbox,name='xboxGue'),
     path('nintendo/', views.nintendo,name='nintendoGue'),
+    path('objJuegoJson/data', views.jsonObjJuegos,name='objJuegoJson'),
 ]

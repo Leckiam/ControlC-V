@@ -27,15 +27,15 @@ body {
     padding: 0px;
     margin: auto;
     display: flex;
-    justify-content: space-between;
     contain: paint;
 }
 
 .contenedor .contenedor-items {
     margin: 2.5% 1%;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(220px, 240px));
     grid-gap: 15px;
+    place-content: center;
     grid-row-gap: 15px;
     width: 100%;
     transition: .3s;
@@ -85,12 +85,13 @@ body {
     font-weight: bold;
     font-size: 17px;
     color: #000000;
-    margin: 0;
-    padding: 0;
+    margin-bottom: 2%;
+    padding: 5%;
     
 }
 
-.contenedor .contenedor-items .item .boton-item {
+.contenedor .contenedor-items .item .boton-item,
+.contenedor .contenedor-items .item .btn-delete {
     display: block;
     font-weight: bold;
     margin: 6px auto;
@@ -99,6 +100,7 @@ body {
     padding: 5px 14px;
     border-radius: 5px;
     cursor: pointer;
+    width: 80%;
 }
 
 #btnItem button {
