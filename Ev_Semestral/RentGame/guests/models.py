@@ -1,5 +1,8 @@
 from django.db import models
 from django.contrib.auth.models import User
+from django.core.files import File
+import urllib.request
+from . import defModels as metodo
 
 # Create your models here.
 class Cliente(models.Model):
@@ -12,6 +15,24 @@ class Cliente(models.Model):
     telefono = models.IntegerField(blank=False, null=False,verbose_name='Telefono')
     direccion = models.CharField(max_length=50, blank=True, null=True,verbose_name='Direccion')
     imagen = models.ImageField(upload_to="clientes", null=True, default="clientes/UserStrange.jpg")
+    
+    def save(self, *args, **kwargs):
+        if self.imagen:
+            print('Con imagen')
+            file_name=metodo.generarNombre(self,'_')+self.imagen.name[-4:]
+            if len(file_name)==len(self.imagen.name.split("/")[-1]):
+                ruta = metodo.llamarRuta(file_name)
+                rutaCopy = metodo.copiarFileLocal(ruta,file_name)
+                file = File(open(rutaCopy, 'rb'))
+                file_name='TempoTMP'+file_name
+                self.imagen.save(file_name, file, save=False)
+                estado=metodo.deleteUrlImagen(file_name)
+                if estado==True:
+                    self.imagen.name=self.imagen.name.replace('TempoTMP','')
+            else:
+                metodo.deleteUrlImagen(file_name)
+                self.imagen.name=file_name
+        super().save(*args, **kwargs)
     
     def __str__(self):
         return  str(User.objects.get(email=self.email))+ ' ' + str(self.nombre) + ' ' + str(self.ap_paterno)

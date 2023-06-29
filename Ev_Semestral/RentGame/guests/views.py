@@ -108,8 +108,8 @@ def agruparJuegos(catalogo):
             listaConsola=[]
             listaStock = []
             listaPrecio = []
+        
         listaConsola.append([item.idConsola.idConsola,item.idConsola.nombre])
-        print(listaConsola)
         listaStock.append([item.stock,item.idConsola.idConsola])
         listaPrecio.append([item.precio,item.idConsola.idConsola])
         obj = {
@@ -123,7 +123,8 @@ def agruparJuegos(catalogo):
                 'precio': listaPrecio,
                 'firstPrecio':listaPrecio[0][0],
             }
-    objs.append(obj)
+    if len(obj)!=0:
+        objs.append(obj)
     if len(objs[0])!=0:
         context={'catalogo':objs}
     return context
@@ -140,6 +141,5 @@ def jsonObjJuegos(request):
         
     context={}
     catalogo = Juego.objects.filter(idConsola__idConsola__in=ids).order_by('idGame','idConsola')
-    print(init,catalogo)
     context=agruparJuegos(catalogo)
     return JsonResponse(context)

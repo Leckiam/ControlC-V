@@ -75,7 +75,8 @@ function addCarritoGame(init,id,titulo,consolas,img,precio,estBtn) {
     }
     itemCarritoContenido +=`
             </select>
-            <div class="precio-item" style="display:none;">${precio}</div>
+            <div class="precio-item" style="display:none;">${precio[0][0]}</div>
+            <div class="precio-item-array" style="display:none;">${precio}</div>
             <button class="boton-item ${estBtn}">Agregar al Carrito</button>
         </div>
     `;
@@ -99,7 +100,7 @@ function jsonObjJuegos(idName,init,estBtn,nro){
                     const pos = i+inicio;
                     try{
                         const item = juegos[pos];
-                        let addItem =addCarritoGame(init,item.idGame,item.nombre,item.idConsola,item.imagen,estBtn)
+                        let addItem =addCarritoGame(init,item.idGame,item.nombre,item.idConsola,item.imagen,item.precio,estBtn)
                         $(idName).append(addItem);
                         let posHijo = $(idName).children.length-1;
                     } catch {
@@ -111,11 +112,12 @@ function jsonObjJuegos(idName,init,estBtn,nro){
                 nro = 1;
                 for (let i = 0; i < juegos.length; i++) {
                     const item = juegos[i];
-                    let addItem =addCarritoGame(init,item.idGame,item.nombre,item.idConsola,item.imagen,estBtn)
+                    let addItem =addCarritoGame(init,item.idGame,item.nombre,item.idConsola,item.imagen,item.precio,estBtn)
                     $(idName).append(addItem);
                     let posHijo = $(idName).children.length-1;
                 }
             }
+            $('.consola-item').on('change',changeFormClicked)
             $('#btnNroCatalo').on('blur',function(){
                 console.log(max)
                 if ($(this).val()>=max){
