@@ -1,0 +1,68 @@
+{% extends "clientes/blockGlobal/base.html" %}
+{% load static %}
+
+{% block cssRG %}
+  <link rel="stylesheet" href="{% static 'administrador/css/adminStyle.css'%}">
+  <link rel="stylesheet" href="{% static 'administrador/css/editGameStyle.css'%}">
+{% endblock cssRG %}
+
+{% block scriptsHead %}
+{% endblock scriptsHead %}
+
+{% block scriptsBody %}
+  <script src="{% static 'administrador/js/ConsolaGames/myEditGame.js'%}"></script>
+{% endblock scriptsBody %}
+
+{% block contenido %}
+{% if user.is_superuser %}
+<div class="capaEmp" id="capaGame">
+  <div id="conten-nro-catalo">
+    <input type="number" id="btnNroCatalo" value="1">
+  </div>
+  <section class="contenedor">
+    <!-- Contenedor de elementos -->
+    <div class="contenedor-items" id="btnItem">
+      {% if juegos %}
+      {% for item in juegos %}
+      <div class="item backgroudGame">
+        <div class="id-item" style="display:none;">{{item.idGame}}</div>
+        <span class="titulo-item">{{item.nombre}}</span>
+        <img src="/media/{{item.imagen}}" alt="" height="304" width="195" class="img-item">
+        <select class="consola-item rounded-3">
+          {% for consola in item.idConsola %}
+          <option value="{{consola.idConsola}}">{{consola.nombre}}</option>
+          {% endfor %}
+        </select>
+        <div class="fila" style="display:none;">
+          <input type="number" class="stock-item" value="{{item.firstStock}}">
+          <input type="text" class="stock-array" value="{{item.stock}}">
+        </div>
+        <div class="fila" style="display:none;">
+          <input type="number" class="precio-item" value="{{item.firstPrecio}}">
+          <input type="text" class="precio-array" value="{{item.precio}}">
+        </div>
+        <button class="boton-item">Modificar</button>
+        <form class="form-delete" action="DML" enctype="multipart/form-data" method="POST" name="deleteGame" id="deleteGame">
+          {% csrf_token %}
+          <input type="number" id="idGameDel" style="display:none;" name="idGame" value="{{item.idGame}}">
+          <input type="number" id="idConsolaDel" style="display:none;" name="idConsola" value="{{item.firstConsole}}">
+          <input type="submit" class="btn-delete" id="btn-delete" name="submitInput" value="Eliminar">
+        </form>
+      </div>
+      {% endfor %}
+      {% endif %}
+    </div>
+  </section>
+</div>
+<div class="addJuego_Fondo rounded-4" id="addJuego_Fondo">
+<div class="addJuego_Box rounded-4" id="addJuego_Box" style="display:none;">
+  <img src="" class="avatar" alt="Avatar Image">
+  <h2 class="titulo">Añadir juego</h2>
+  <form class="form-update" action="DML" enctype="multipart/form-data" method="POST" name="editGame" id="editGame">
+    {% csrf_token %}
+  </form>
+  <button class="btn-cancel" id="btn-cancel">Cancelar</button>
+</div><br>
+</div>
+{% endif %}
+{% endblock %}

@@ -1,0 +1,58 @@
+{% load static %}
+
+<nav class="navbar navbar-expand-lg" style="background-color: #1b1b1b ;" data-bs-theme="dark">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="{% url 'indexGue' %}"><img src="{% static 'guests/img/Logo/RentGames/LogoB_RentGames.png' %}"
+        class="card-img-top rounded-2" alt="" height="48"></a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="{% url 'indexGue' %}">Inicio</a>
+            </li>
+            <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Consolas
+            </a>
+            <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="{% url 'playStationGue' %}">PlayStation</a></li>
+                <li><a class="dropdown-item" href="{% url 'xboxGue' %}">Xbox</a></li>
+                <li><a class="dropdown-item" href="{% url 'nintendoGue' %}">Nintendo</a></li>
+            </ul>
+            </li>
+            <li class="nav-item">
+            {% if user.is_authenticated %}
+            <a class="nav-link" href="{% url 'perfilCli' %}">{{user.username}}</a>
+            {% else %}
+            <a class="nav-link" href="{% url 'loginGue' %}">Iniciar Sesión</a>
+            {% endif %}
+            </li>
+            {% if user.is_superuser %}
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    Gestionar Juegos
+                </a>
+                <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="{% url 'gameAddAdm' %}">Añadir Juegos</a></li>
+                    <li><a class="dropdown-item" href="{% url 'gameEditAdm' %}">Modificar Juegos</a></li>
+                </ul>
+            </li>
+            {% endif %}
+        </ul>
+        {% if user.is_authenticated %}
+        <ul class="navbar-nav mb-2 mb-lg-0">
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'logOutCli' %}">Cerrar Sesion</a>
+            </li>
+        </ul>
+        {% endif %}
+        <form class="d-flex" method="get" role="search" id="form-search">
+            <input class="form-control me-2" type="search" name="search" placeholder="Buscar" aria-label="Search">
+            <button class="btn btn-outline-success" type="submit">Buscar</button>
+        </form>
+        </div>
+    </div>
+</nav>
