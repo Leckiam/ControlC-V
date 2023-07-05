@@ -14,54 +14,84 @@
 {% block contenido %}
 <section id="sectionPerfil">
   <div class="perfil_box rounded-4">
-    <img src="{{cliente.imagen.url}}" class="avatar" alt="Avatar Image">
+    {%if cliente.imagen %}
+      <img src="{{cliente.imagen.url}}" class="avatar" alt="Avatar Image">
+    {% else %}
+      <img src="/media/clientes/UserStrange.jpg" class="avatar" alt="Avatar Image">
+    {% endif %}
     <h2 class="titulo">{{user.username}}</h2>
     <form class="formulario" action="" enctype="multipart/form-data" method="POST" name="perfil" id="perfil">
         {% csrf_token %}
-        <!--Correo-->
-        <div class="m-3 form-floating">
-          <input class="form-control" type="email" id="correo" placeholder=" " value="{{user.email}}" disabled>
-          <label for="correo">Correo:</label>
+        <div id="pageOnePerfil">
+          <!--Correo-->
+          <div class="m-3 form-floating">
+            <input class="form-control" type="email" name="correo" id="correo" placeholder=" " value="{{user.email}}" readonly>
+            <label for="correo">Correo:</label>
+          </div>
+          <!--Nombre-->
+          <div class="m-3 form-floating">
+            <input class="form-control" type="text" name="nombre" id="nombre"
+              placeholder=" " value="{{cliente.nombre}}">
+            <label for="nombre">Nombre:</label>
+          </div>
+          <!--Apellido paterno-->
+          <div class="m-3 form-floating">
+            <input class="form-control" type="text" name="apPaterno" id="apPaterno"
+              placeholder=" " value="{{cliente.ap_paterno}}">
+            <label for="apPaterno">Apellido paterno:</label>
+          </div>
+          <!--Apellido materno-->
+          <div class="m-3 form-floating">
+            <input class="form-control" type="text" name="apMaterno" id="apMaterno"
+              placeholder=" " value="{{cliente.ap_materno}}">
+            <label for="apMaterno">Apellido materno:</label>
+          </div>
+          <!--Borrar Imagen-->
+          <div class="m-3 form-floating">
+            <input class="form-checkbox" type="checkbox" name="clearImg" id="clearImg">
+            <label for="clearImg">Borrar Imagen:</label>
+          </div>
+          <!--Imagen-->
+          <div class="m-3" id="divImg">
+            <label for="imagen" class="form-label">Imagen: </label>
+            <input type="file" name="imagen" id="imagen" value= "{{cliente.imagen.url}}">
+          </div>
+          <div style="display: flex; justify-content: flex-end;">
+            <button type="button" class="nextPerfil">Siguiente</button>
+          </div>
         </div>
-        <div class="m-3 form-floating" style="display:none;">
-          <input class="form-control" type="email" name="correo"placeholder=" " value="{{user.email}}">
-          <label for="correo">Correo:</label>
-        </div>
-        <!--Nombre-->
-        <div class="m-3 form-floating">
-          <input class="form-control" type="text" name="nombre" id="nombre"
-            placeholder="Ingrese su nombre" value="{{cliente.nombre}}">
-          <label for="nombre">Nombre:</label>
-        </div>
-        <!--FechaNacimiento-->
-        <div class="m-3 form-floating">
-          <input class="form-control" type="date" name="dateNac" id="dateNac"
-            placeholder=" " style="height: auto;" value='{{cliente.fecha_nacimiento|date:"Y-m-d"}}'>
-          <label for="dateNac">FechaNacimiento:</label>
-        </div>
-        <!--Genero-->
-        <div class="m-3 form-floating">
-          <select class="form-select" name="genero" id="genero">
-              {% for genero in generos %}
-                {% if cliente.id_genero == genero.id_genero %}
-                  <option value="{{cliente.id_genero}}" selected>{{genero.genero}}</option>
-                {% else %}
-                  <option value="{{genero.id_genero}}">{{genero.genero}}</option>
-                {% endif %}
-              {% endfor %}
-          </select>
-          <label for="genero">Genero:</label>
-        </div>
-        <!--Telefono-->
-        <div class="m-3 form-floating">
-          <input class="form-control" type="number" name="telefono" id="telefono" placeholder=" " value="{{cliente.telefono}}">
-          <label for="telefono">Telefono:</label>
-        </div>
-        <!--Direccion-->
-        <div class="m-3 form-floating">
-          <input class="form-control" type="text" name="direccion" id="direccion"
-            placeholder=" " value="{{cliente.direccion}}">
-          <label for="direccion">Direcci&oacute;n:</label>
+        <div id="pageTwoPerfil" style="display: none;">
+          <!--FechaNacimiento-->
+          <div class="m-3 form-floating">
+            <input class="form-control" type="date" name="dateNac" id="dateNac"
+              placeholder=" " style="height: auto;" value='{{cliente.fecha_nacimiento|date:"Y-m-d"}}'>
+            <label for="dateNac">FechaNacimiento:</label>
+          </div>
+          <!--Genero-->
+          <div class="m-3 form-floating">
+            <select class="form-select" name="genero" id="genero">
+                {% for genero in generos %}
+                  {% if cliente.id_genero == genero.id_genero %}
+                    <option value="{{cliente.id_genero}}" selected>{{genero.genero}}</option>
+                  {% else %}
+                    <option value="{{genero.id_genero}}">{{genero.genero}}</option>
+                  {% endif %}
+                {% endfor %}
+            </select>
+            <label for="genero">Genero:</label>
+          </div>
+          <!--Telefono-->
+          <div class="m-3 form-floating">
+            <input class="form-control" type="number" name="telefono" id="telefono" placeholder=" " value="{{cliente.telefono}}">
+            <label for="telefono">Telefono:</label>
+          </div>
+          <!--Direccion-->
+          <div class="m-3 form-floating">
+            <input class="form-control" type="text" name="direccion" id="direccion"
+              placeholder=" " value="{{cliente.direccion}}">
+            <label for="direccion">Direcci&oacute;n:</label>
+          </div>
+          <button type="button" class="backPerfil">Anterior</button>
         </div>
         <ul for="errorMensaje" id="errorMensaje" style="background: #ab2424; display: none;">
         </ul>

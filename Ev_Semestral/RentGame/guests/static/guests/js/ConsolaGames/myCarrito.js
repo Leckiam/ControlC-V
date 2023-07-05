@@ -1,43 +1,16 @@
 if (document.readyState == 'loading') {
-    document.addEventListener('DOMContentLoaded', function(){
-        timeReady()
-    })
+    document.addEventListener('DOMContentLoaded', ready)
 } else {
-    timeReady();
-}
-function timeReady(){
-    let tiempo = setInterval(function (){
-        let cantJuegos = document.getElementsByClassName('contenedor-items')[0].childElementCount
-        ready();
-        if (cantJuegos==20) {
-            clearInterval(tiempo);
-        }
-    }, 1000);
+    ready();
 }
 
 function ready() {
-    let myJuegos = document.getElementById('btnNroCatalo')
-    myJuegos.addEventListener('blur',function(){
-        timeReady();
-    });
-    
-    /* Pagar carrito de PS, XB o NT*/
-    let btnPagar = document.getElementsByClassName('btn-pagar')[0]
-    btnPagar.addEventListener('click', function () {
-        location.href = "Index.html";
-    });
     /* Actualizar precio de juegos en carrito de las consolas PS, XB y NT*/
     let getDiaTotal = document.getElementsByClassName('carrito-dias-total')[0];
     getDiaTotal.addEventListener("blur", function () {
         limitTimeDay(getDiaTotal);
         actualizarTotalCarrito();
     });
-    /* Agregar carrito en PS, XB y en NT*/
-    let btnsAddCarrito = document.getElementsByClassName('boton-item');
-    for (let i = 0; i < btnsAddCarrito.length; i++) {
-        let btnAdd = btnsAddCarrito[i];
-        btnAdd.addEventListener('click', agregarAlCarritoClicked);
-    }
 }
 
 function limitTimeDay(inputDay) {
@@ -59,7 +32,7 @@ function agregarAlCarritoClicked(event) {
     let id = item.getElementsByClassName('id-item')[0].innerText;
     let titulo = item.getElementsByClassName('titulo-item')[0].innerText;
     let genConsole = item.getElementsByClassName('consola-item')[0];
-    let precio = item.getElementsByClassName('precio-item')[0];
+    let precio = item.getElementsByClassName('precio-item')[0].innerText;
     let imagenSrc = item.getElementsByClassName('img-item')[0].src;
 
     agregarItemAlCarrito(id,titulo, precio, imagenSrc, genConsole);
@@ -93,7 +66,7 @@ function agregarItemAlCarrito(id,titulo, precio, imagenSrc, genConsole) {
         initConsole='XB'
     }
     let itemsCarrito = document.getElementsByClassName('carrito-items')[0];
-    let consoleSelected = genConsole.value;
+    let consoleSelected = genConsole.options[genConsole.selectedIndex].textContent;
 
     let nombresItemsCarrito = itemsCarrito.getElementsByClassName('carrito-item-titulo');
     for (let i = 0; i < nombresItemsCarrito.length; i++) {

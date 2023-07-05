@@ -53,51 +53,44 @@
     <input type="number" id="btnNroCatalo" value="1">
   </div>
   <section class="contenedor">
-    <!-- Contenedor de elementos -->
     {% if user.is_authenticated %}
     <div class="contenedor-items" id="btnItemCliPS">
-      {% if catalogo %}
-        {% for catalogoPS in catalogo %}
-          <div class="item backgroudPS">
-            <span class="titulo-item">{{catalogoPS.nombre}}</span>
-            <img src="{{catalogoPS.imagen.url}}" alt="" height="304" width="195" class="img-item">
-            <select class="consola-item rounded-3">
-              {% for consola in catalogoPS.idConsola %}
-              <option value="{{consola.idConsola}}">{{consola.nombre}}</option>
-              {% endfor %}
-            </select>
-            <button class="boton-item">Agregar al Carrito</button>
-          </div>
-        {% endfor %}
-      {% endif %}
     </div>
     {% else %}
     <div class="contenedor-items" id="btnItemGuePS">
-
     </div>
     {% endif %}
   </section>
-  <!-- Carrito de Compras -->
-  <div class="carrito" id="carrito">
-    <div class="header-carrito" id="headerCarPS">
-      <h2>Tu Carrito</h2>
-    </div>
-    <div class="carrito-items">
-    </div>
-    <div class="carrito-total">
-      <div class="fila">
-        <strong>Dias:</strong>
-        <span><input type="number" class="carrito-dias-total" value="3"></span>
+  {% if user.is_authenticated %}
+    <div class="carrito" id="carrito">
+      <div class="header-carrito" id="headerCarPS">
+        <h2>Tu Carrito</h2>
       </div>
-      <div class="fila">
-        <strong>Tu Total</strong>
-        <span class="carrito-precio-total">
-          $0 CLP
-        </span>
+      <div class="carrito-items">
       </div>
-      <button class="btn-pagar" id="btnPagPS">Pagar</button>
-    </div>
-  </div><br>
+      <div class="carrito-total">
+        <div class="fila">
+          <strong>Dias:</strong>
+          <span><input type="number" class="carrito-dias-total" value="3" min="3" max="21"></span>
+        </div>
+        <div class="fila">
+          <strong>Tu Total</strong>
+          <span class="carrito-precio-total">
+            $0 CLP
+          </span>
+        </div>
+        <form class="form-update" action="{% url 'uploadCarrito' %}" enctype="multipart/form-data" method="POST">
+          {% csrf_token %}
+          <div style="display: none;">
+            <input type="text" id="cadenaJuegos" name="cadenaJuegos" value="0">
+            <input type="text" id="nombre" name="nombre" value="{{user.username}}">
+            <input type="number" id="precio" name="precio" value="0">
+          </div>
+          <input type="submit" class="btn-pagar" id="btnPagPS" value="Pagar">
+        </form>
+      </div>
+    </div><br>
+  {% endif %}
 </div>
 {% endblock %}
 

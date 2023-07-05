@@ -1,4 +1,5 @@
 from django.conf import settings
+from django.contrib.auth.models import User
 import shutil
 import psutil
 import os
@@ -17,18 +18,14 @@ def obtener_nombre_disco():
     return nombre_disco
 
 def generarNombre(instance,space):
-    nameConsole = str(instance.idConsola)
-    if (nameConsole[0]=='P'):
-        nameConsole='PS'+' '+nameConsole[-1:]
-    elif (nameConsole[0]=='X'):
-        nameConsole='XB'+' '+nameConsole[-3:]
-    else:
-        nameConsole='NT'+' '+nameConsole[-3:]
     if space=='_':
-        newName = eliminarSimbolo(str(instance.nombre))
+        userTmp=User.objects.get(email=instance.email)
+        file_name=userTmp.username
+        newName = file_name.replace('.','_')
         return newName.replace(' ',space)
     else:
-        return str(instance.nombre).replace(' ',space)+' '+nameConsole.replace(' ','_').upper()
+        file_name=str(User.objects.get(email=instance.email))+ ' ' + str(instance.nombre) + ' ' + str(instance.ap_paterno)
+        return file_name
 
 def eliminarSimbolo(texto):
     patron = r"[^\w\s]"
@@ -36,7 +33,7 @@ def eliminarSimbolo(texto):
     return texto_sin_simbolos
 
 def llamarRuta(fileName):
-    url='juegos'+'\\'+fileName
+    url='clientes'+'\\'+fileName
     ruta_completa = os.path.join(settings.MEDIA_ROOT, url.lstrip('/'))
     return ruta_completa
 
@@ -53,7 +50,6 @@ def deleteUrlImagen(fileName):
 
 def copiarFileLocal(ruta,file_name):
     diskName = obtener_nombre_disco()
-    ruta_destino = diskName+'Windows\\Temp\\'+file_name
-    print('Ruta_Destino'+ruta_destino)
+    ruta_destino = diskName+'Users\\Public\\Downloads\\'+file_name
     shutil.copy2(ruta, ruta_destino)
     return ruta_destino

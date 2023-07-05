@@ -1,31 +1,17 @@
 if (document.readyState == 'loading') {
     document.addEventListener('DOMContentLoaded', function(){
-        timeReady()
+        ready()
     })
 } else {
-    timeReady();
-}
-function timeReady(){
-    let tiempo = setInterval(function (){
-        let cantJuegos = document.getElementsByClassName('contenedor-items')[0].childElementCount;
-        if (cantJuegos==20) {
-            ready();
-            clearInterval(tiempo);
-        }
-    }, 1000);
+    ready();
 }
 
 function ready() {
     let myJuegos = document.getElementById('btnNroCatalo')
     myJuegos.addEventListener('blur',function(){
-        timeReady();
+        ready();
     });
-    /* Agregar juegos de PS, XB y NT*/
-    let btnsAddCarrito = document.getElementsByClassName('boton-item');
-    for (let i = 0; i < btnsAddCarrito.length; i++) {
-        let btnAdd = btnsAddCarrito[i];
-        btnAdd.addEventListener('click', agregarJuegoClicked);
-    }
+    /* Cancelar la accion de agregar juegos de PS, XB y/o NT*/
     let btnCancelar = document.getElementsByClassName('btn-cancel')[0];
     btnCancelar.addEventListener('click',ocultarAddGame);
 }
@@ -53,7 +39,7 @@ function agregarItemAlCarrito(id,titulo, imagenSrc, genConsole) {
     let itemCarritoContenido = `
         <input type="number" name="idGame" id="idGame" style="display:none;" value="${id}">
         <div class="m-3 form-floating">
-            <input class="form-control" type="text" name="nombre" id="nombre" placeholder=" " value="${titulo}">
+            <input class="form-control" type="text" name="nombre" id="nombre" readonly placeholder=" " value="${titulo}">
             <label for="nombre">Nombre:</label>
         </div>
         <div class="m-3 form-floating">

@@ -1,11 +1,11 @@
-.addJuego_Box {
+.editJuego_Box {
     width: 380px;
     background: #0d8168;
     color: #fff;
     left: 50%;
     position: fixed;
     z-index: 9999;
-    transform: translate(-50%, 30%);
+    transform: translate(-50%, 20%);
     box-sizing: border-box;
     padding: 70px 30px;
 }
@@ -14,14 +14,14 @@
     width: 0px;
 }
 
-.addJuego_Box h2 {
+.editJuego_Box h2 {
     margin: 0;
     padding: 0 0 20px;
     text-align: center;
     font-size: 22px;
 }
 
-.addJuego_Box .avatar {
+.editJuego_Box .avatar {
     width: 100px;
     height: 100px;
     border-radius: 20%;
@@ -30,36 +30,36 @@
     left: calc(50% - 50px);
 }
 
-.addJuego_Box label {
+.editJuego_Box label {
     margin: 0;
     padding: 0;
     padding-left: 2%;
     display: block;
 }
 
-.addJuego_Box input {
+.editJuego_Box input {
     width: 100%;
     margin-bottom: 20px;
 }
 
-.addJuego_Box input[type="text"],
-.addJuego_Box input[type="number"],
-.addJuego_Box select {
+.editJuego_Box input[type="text"],
+.editJuego_Box input[type="number"],
+.editJuego_Box select {
     border: none;
     border-bottom: 1px solid #ffffff;
     background: transparent;
     outline: none;
-    height: 40px;
+    height: auto;
     width: 100%;
     color: #fff;
     font-size: 16px;
     padding-left: 3%;
 }
-.addJuego_Box option {
+.editJuego_Box option {
     color: #000000;
 }
 
-.addJuego_Box input[type="submit"] {
+.editJuego_Box input[type="submit"] {
     border: none;
     outline: none;
     height: 40px;
@@ -89,7 +89,7 @@
 }
 
 @media screen and (max-width: 390px) {
-    .addJuego_Box {
+    .editJuego_Box {
         display: block;
         width: 100%;
         height: 75%;
