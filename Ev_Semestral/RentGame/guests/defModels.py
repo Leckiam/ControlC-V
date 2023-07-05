@@ -1,12 +1,26 @@
 from django.conf import settings
 from django.contrib.auth.models import User
 import shutil
+import psutil
 import os
 import re
 
+def obtener_nombre_disco():
+    particiones = psutil.disk_partitions()
+
+    for particion in particiones:
+        if 'fixed' in particion.opts:
+            nombre_disco = particion.device
+            break
+    else:
+        nombre_disco = "Desconocido"
+
+    return nombre_disco
+
 def generarNombre(instance,space):
     if space=='_':
-        file_name=str(User.objects.get(email=instance.email))
+        userTmp=User.objects.get(email=instance.email)
+        file_name=userTmp.username
         newName = file_name.replace('.','_')
         return newName.replace(' ',space)
     else:
@@ -35,6 +49,7 @@ def deleteUrlImagen(fileName):
         return False
 
 def copiarFileLocal(ruta,file_name):
-    ruta_destino = 'C:\\Windows\\Temp\\'+file_name
+    diskName = obtener_nombre_disco()
+    ruta_destino = diskName+'Users\\Public\\Downloads\\'+file_name
     shutil.copy2(ruta, ruta_destino)
     return ruta_destino

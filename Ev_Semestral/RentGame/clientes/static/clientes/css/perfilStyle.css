@@ -22,7 +22,7 @@ body {
     position: relative;
     transform: translate(-50%, 15%);
     box-sizing: border-box;
-    padding: 70px 30px;
+    padding: 70px 30px 40px;
 }
 .form-floating:not(.form-control:disabled)::before {
     width: 0px;
@@ -66,7 +66,7 @@ body {
     border-bottom: 1px solid #ffffff;
     background: transparent;
     outline: none;
-    height: 40px;
+    height: auto;
     color: #fff;
     font-size: 16px;
     padding-left: 3%;
@@ -74,7 +74,26 @@ body {
 .perfil_box option {
     color: #000000;
 }
-
+.perfil_box input[type="file"],
+.perfil_box input[type="checkbox"] {
+    border: none;
+    margin: 0%;
+    background: transparent;
+    height: auto;
+    color: transparent;
+    font-size: 16px;
+}
+.perfil_box .nextPerfil,
+.perfil_box .backPerfil {
+    border: none;
+    height: 40px;
+    width: 50%;
+    background: #770404;
+    color: #fff;
+    font-size: 18px;
+    border-radius: 20px;
+    margin-bottom: 3px;
+}
 .perfil_box input[type="submit"],
 .perfil_box input[type="reset"] {
     border: none;

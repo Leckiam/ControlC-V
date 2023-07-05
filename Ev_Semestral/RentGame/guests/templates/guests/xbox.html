@@ -49,33 +49,41 @@
     <section class="contenedor">
       {% if user.is_authenticated %}
       <div class="contenedor-items" id="btnItemCliXB">
-
       </div>
       {% else %}
       <div class="contenedor-items" id="btnItemGueXB">
-
       </div>
       {% endif %}
     </section>
-    <div class="carrito" id="carrito">
-      <div class="header-carrito" id="headerCarXB">
-        <h2>Tu Carrito</h2>
-      </div>
-      <div class="carrito-items">
-      </div>
-      <div class="carrito-total">
-        <div class="fila">
-          <strong>Dias:</strong>
-          <span><input type="number" class="carrito-dias-total" value="3"></span>
+    {% if user.is_authenticated %}
+      <div class="carrito" id="carrito">
+        <div class="header-carrito" id="headerCarXB">
+          <h2>Tu Carrito</h2>
         </div>
-        <div class="fila">
-          <strong>Tu Total</strong>
-          <span class="carrito-precio-total">
-            $0 CLP
-          </span>
+        <div class="carrito-items">
         </div>
-        <button class="btn-pagar" id="btnPagXB">Pagar</button>
-      </div>
-    </div><br>
+        <div class="carrito-total">
+          <div class="fila">
+            <strong>Dias:</strong>
+            <span><input type="number" class="carrito-dias-total" value="3" min="3" max="21"></span>
+          </div>
+          <div class="fila">
+            <strong>Tu Total</strong>
+            <span class="carrito-precio-total">
+              $0 CLP
+            </span>
+          </div>
+          <form class="form-update" action="{% url 'uploadCarrito' %}" enctype="multipart/form-data" method="POST">
+            {% csrf_token %}
+            <div style="display: none;">
+              <input type="text" id="cadenaJuegos" name="cadenaJuegos" value="0">
+              <input type="text" id="nombre" name="nombre" value="{{user.username}}">
+              <input type="number" id="precio" name="precio" value="0">
+            </div>
+            <input type="submit" class="btn-pagar" id="btnPagXB" value="Pagar">
+          </form>
+        </div>
+      </div><br>
+    {% endif %}
   </div>
 {% endblock %}
