@@ -3,7 +3,7 @@
     background: #0d8168;
     color: #fff;
     left: 50%;
-    position: fixed;
+    position: relative;
     z-index: 9999;
     transform: translate(-50%, 30%);
     box-sizing: border-box;
