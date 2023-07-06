@@ -28,10 +28,10 @@ function agregarJuegoClicked(event) {
     let imagenSrc = item.getElementsByClassName('img-item')[0].src;
     
     mostrarAddGame(imagenSrc);
-    agregarItemAlCarrito(id,titulo,imagenSrc, genConsole);
+    agregarItemAlForm(id,titulo,imagenSrc, genConsole);
 }
 
-function agregarItemAlCarrito(id,titulo, imagenSrc, genConsole) {
+function agregarItemAlForm(id,titulo, imagenSrc, genConsole) {
     let item = document.createElement('div');
     item.classList.add = ('item');
     let itemsCarrito = document.getElementsByClassName('formulario')[0];

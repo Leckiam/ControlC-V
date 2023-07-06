@@ -11,6 +11,8 @@ function ready() {
         limitTimeDay(getDiaTotal);
         actualizarTotalCarrito();
     });
+    let btnPagar = document.getElementsByClassName('btn-pagar')[0];
+    btnPagar.addEventListener("click",actualizarFormCarrito);
 }
 
 function limitTimeDay(inputDay) {
@@ -67,6 +69,7 @@ function agregarItemAlCarrito(id,titulo, precio, imagenSrc, genConsole) {
     }
     let itemsCarrito = document.getElementsByClassName('carrito-items')[0];
     let consoleSelected = genConsole.options[genConsole.selectedIndex].textContent;
+    let idConsole = genConsole.value;
 
     let nombresItemsCarrito = itemsCarrito.getElementsByClassName('carrito-item-titulo');
     for (let i = 0; i < nombresItemsCarrito.length; i++) {
@@ -89,6 +92,7 @@ function agregarItemAlCarrito(id,titulo, precio, imagenSrc, genConsole) {
                     </span>
                 </div>
                 <div class="fila">
+                    <div class="idConsole-item" style="display:none;">${idConsole}</div>
                     <span class="consola-item">
                     ${consoleSelected}
                     </span>
@@ -118,5 +122,30 @@ function actualizarTotalCarrito() {
         total = total + (precio * cantidadDias);
     }
     document.getElementsByClassName('carrito-precio-total')[0].innerText = '$' + total + " CLP";
+}
 
+function actualizarFormCarrito(event){
+    let carrito = document.getElementsByClassName('carrito')[0];
+    let items = carrito.getElementsByClassName('carrito-items')[0].children;
+    let precioTot = carrito.getElementsByClassName('carrito-precio-total')[0].innerText;
+    let dias = carrito.getElementsByClassName('carrito-dias-total')[0].value;
+    let form = carrito.getElementsByClassName('form-update')[0];
+
+    let cadenaGameForm = form.querySelector('[name="cadenaJuegos"]');
+    let precioForm = form.querySelector('[name="precio"]');
+    let diasForm = form.querySelector('[name="dias"]');
+
+    precioTot = parseInt(precioTot.replace('$','').replace(' CLP',''));
+    let listaGameBuy = [];
+
+    for (let i = 0; i < items.length; i++) {
+        const item = items[i];
+        const idGame = parseInt(item.getElementsByClassName('id-item')[0].innerText);
+        const idConsole = parseInt(item.getElementsByClassName('idConsole-item')[0].innerText);
+        listaGameBuy.push([idGame,idConsole]);
+    }
+
+    cadenaGameForm.value = JSON.stringify(listaGameBuy);
+    diasForm.value = parseInt(dias);
+    precioForm.value = precioTot;
 }

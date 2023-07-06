@@ -20,6 +20,30 @@ body {
 }
 #conten-nro-catalo input {
     text-align: center;
+    padding: 8px;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    max-width: 70px;
+    margin-right: 10px;
+}
+#conten-nro-catalo input:focus {
+    outline: none;
+    border-color: #6c63ff;
+    box-shadow: 0 0 5px #6c63ff;
+}
+#selectFilter {
+    padding: 8px;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    max-width: 130px;
+    margin-left: 10px;
+}
+#selectFilter:focus {
+    outline: none;
+    border-color: #6c63ff;
+    box-shadow: 0 0 5px #6c63ff;
 }
 /*Juegos para carro*/
 .contenedor {
