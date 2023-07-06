@@ -18,8 +18,8 @@ function updateStockPrecio(item,select){
     let precio = item.getElementsByClassName('precio-item')[0]
     let listaStock = item.getElementsByClassName('stock-array')[0].value
     let listaprecio = item.getElementsByClassName('precio-array')[0].value
-    listaStock = eval(listaStock);
-    listaprecio = eval(listaprecio);
+    listaStock = JSON.parse(listaStock);
+    listaprecio = JSON.parse(listaprecio);
     for (let i = 0; i < select.options.length; i++) {
         const consola = listaStock[i][1];
         if (select.value==consola) {

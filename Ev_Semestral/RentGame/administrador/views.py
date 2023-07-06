@@ -2,6 +2,7 @@ from django.views.decorators.http import require_GET
 from django.shortcuts import render,redirect
 from django.http import JsonResponse
 from .models import Juego,Consola
+from clientes.models import Carrito
 
 # Create your views here.
 
@@ -38,6 +39,20 @@ def gameEdit(request):
         consolas=Consola.objects.all().order_by('idConsola')
         context={'consolas':consolas}
         return render(request,'administrador/juegosEditar.html',context)
+    else:
+        return redirect('indexGue')
+
+def verCarrito(request):
+    if request.user.is_superuser:
+        return render(request,'administrador/carritoLista.html')
+    else:
+        return redirect('indexGue')
+
+def deleteCarrito(request,pk):
+    if request.user.is_superuser:
+        objCarrito=Carrito.objects.get(idCarro=pk)
+        objCarrito.delete()
+        return redirect('verCarritoAdm')
     else:
         return redirect('indexGue')
 
@@ -131,6 +146,45 @@ def agruparJuegos(catalogo,filtro):
     if len(objs[0])!=0:
         context={'catalogo':objs}
     return context
+
+def formatearDate(carritos):
+    objs=[]
+    for carrito in carritos:
+        date_start = str(carrito.fecha_emicion)
+        date_end = str(carrito.fecha_fin)
+        obj = {
+            'idCarro': carrito.idCarro,
+            'nombreCli': carrito.nombreCli,
+            'cadenaJuegos': carrito.cadenaJuegos,
+            'fecha_emicion': date_start,
+            'dias_renta': carrito.dias_renta,
+            'fecha_fin': date_end,
+            'precio': carrito.precio
+        }
+        objs.append(obj)
+    return objs
+
+def formatearGame(game):
+    listaConsola=[game.idConsola.idConsola,game.idConsola.nombre]
+    obj = {
+        'idGame': game.idGame,
+        'idConsola': listaConsola,
+        'nombre': game.nombre,
+        'imagen': game.imagen.url,
+        'stock': game.stock,
+        'precio': game.precio
+    }
+    return obj
+
+@require_GET
+def jsonObjsCarritos(request):
+    if request.user.is_superuser:
+        carritos = Carrito.objects.all().order_by('fecha_emicion')
+        newCarritos = formatearDate(carritos)
+        context={'carritos':newCarritos}
+        return JsonResponse(context)
+    else:
+        return redirect('indexGue')
 
 @require_GET
 def llamarGameConsole(request):

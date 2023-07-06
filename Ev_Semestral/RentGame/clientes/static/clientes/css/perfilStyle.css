@@ -2,8 +2,8 @@
 body {
     margin: 0;
     padding: 0;
-    background-image: url('../img/Fondos/Fondo_General.png');
-    background-size: contain;
+    background-image: url('../img/Fondos/Fondo_Perfil.jpg');
+    background-size: cover;
     font-family: sans-serif;
     overflow: auto;
 }
@@ -16,7 +16,7 @@ body {
 .perfil_box {
     width: 380px;
     height: 0%;
-    background: #000;
+    background: #111111;
     color: #fff;
     left: 50%;
     position: relative;
