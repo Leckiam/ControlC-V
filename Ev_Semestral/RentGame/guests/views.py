@@ -40,10 +40,7 @@ def registerGue(request):
             nombre=request.POST["nombre"]
             password=request.POST["password"]
             fecha_nacimiento=request.POST["dateNac"]
-            genero=request.POST["genero"]
-            telefono=request.POST["telefono"]
             email=request.POST["correo"]
-            direccion=request.POST["direccion"]
             
             usernameTmp=''
             for i in email:
@@ -58,16 +55,15 @@ def registerGue(request):
                 user = User.objects.create_user(username=usernameTmp, password=password)
                 user.email = email
                 user.save()
-            
-            objGenero=Genero.objects.get(id_genero=genero)
+            objgenero = Genero.objects.get(id_genero=1)
             obj=Cliente.objects.create(email = email,
                                     nombre = nombre,
                                     ap_paterno = '',
                                     ap_materno = '',
                                     fecha_nacimiento = fecha_nacimiento,
-                                    id_genero = objGenero,
-                                    telefono = telefono,
-                                    direccion = direccion)
+                                    id_genero = objgenero,
+                                    telefono = 0,
+                                    direccion = '')
             obj.save()
             print('Exito',obj)
             return redirect(to='loginGue')
