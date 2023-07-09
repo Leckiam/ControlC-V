@@ -116,7 +116,7 @@ function updateDiaPrecioTot(listaDP){
     let precioTot = carrito.getElementsByClassName('carrito-precio-total')[0];
 
     dias.value = listaDP[0];
-    precioTot.value = '$'+listaDP[1]+' CLP';
+    precioTot.innerText = '$'+listaDP[1]+' CLP';
 }
 
 function llamarGame(idGame,idConsola){
