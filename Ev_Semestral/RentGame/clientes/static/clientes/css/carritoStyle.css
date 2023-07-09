@@ -1,0 +1,231 @@
+/*Box Register*/
+body {
+    margin: 0;
+    padding: 0;
+    background-image: url('../img/Fondos/Fondo_Carrito.jpg');
+    background-size: cover;
+    font-family: sans-serif;
+    overflow: auto;
+}
+
+.respond {
+  overflow-x: auto;
+}
+
+.container-btn {
+    position: relative;
+    width: 100%;
+    height: 50px;
+}
+
+.container-btn .back-btn {
+    position: absolute;
+    background-color:#1f4855;
+    border: none;
+    color: #ffffff;
+    padding: 10px 15px;
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.container-btn .next-btn {
+    position: absolute;
+    background-color:#1f4855;
+    border: none;
+    color: #ffffff;
+    padding: 10px 15px;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.btnVerGame{
+    background:#2b2828 !important;
+    border: none;
+    color: #ffffff;
+    padding: 10px 15px;
+}
+
+.capaEmp {
+    position: absolute;
+    width: 80%;
+    left: 50%;
+    transform: translate(-50%, 10px);
+}
+.backgroudGame {
+    background: #3b3b3d;
+    background-size: cover;
+}
+.carrito {
+    background: #f3f3f3;
+    border: 1px solid #666;
+    width: 100%;
+    margin-top: 30px;
+    border-radius: 10px;
+    overflow: hidden;
+    margin-bottom: auto;
+    position: sticky !important;
+    top: 0;
+    transition: .3s;
+    padding-left: -10%;
+
+    display: none;
+}
+
+.carrito .header-carrito {
+    color: #fff;
+    font-weight: bold;
+    text-align: center;
+    padding: 20px;
+}
+
+#headerCarGame {
+    background-color: #3b3b3d;
+}
+
+.carrito .carrito-dias-total {
+    text-align: center;
+    border: none;
+    color: #ffffff;
+    font-weight: bold;
+    background: none;
+    max-width: 55px;
+}
+
+.carrito .carrito-items {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(205px, 230px));
+    place-content: center;
+    grid-gap: 15px;
+    grid-row-gap: 15px;
+    position: relative;
+    border-bottom: 1px solid #666;
+    padding: 20px;
+    color: #ffffff;
+}
+
+
+.carrito .carrito-item .fila {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.carrito .carrito-item .carrito-item-detalles {
+    margin: 0;
+    padding: 20px;
+    border: 1px solid #666;
+    border-radius: 10px;
+    transition: .3s;
+    display: grid;
+    grid-template-rows: 1fr auto 35px;
+}
+
+.carrito .carrito-item .carrito-item-detalles img {
+    margin-right: 20px;
+    margin-bottom: 12px;
+    width: 100%;
+}
+
+.carrito .carrito-item .carrito-item-detalles .carrito-item-titulo {
+    text-align: center;
+    display: block;
+    font-weight: bold;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+}
+
+.carrito .carrito-item .carrito-item-detalles .carrito-item-precio {
+    font-weight: bold;
+    display: inline-block;
+    font-size: 18px;
+    margin-bottom: 5px;
+}
+.carrito .carrito-item .carrito-item-detalles .consola-item{
+    text-align: center;
+    color: #ffffff;
+    margin: 0;
+    padding: 0;
+}
+.carrito .carrito-item .carrito-item-detalles option{
+    background: #ffffff;
+    color: #000000;
+}
+.carrito .carrito-item .carrito-item-detalles .btn-borrar{
+    display: block;
+    font-weight: bold;
+    margin: 6px auto;
+    border: none;
+    color: #fff;
+    width: 160px;
+    padding: 5px 14px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.carrito-total {
+    padding: 30px;
+}
+
+.carrito-total .fila {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 22px;
+    margin-bottom: 10px;
+}
+.carrito-total .fila input{
+    color: #000;
+}
+
+.carrito-total .btn-close-carrito {
+    width: 100%;
+    border: none;
+    color: #fff;
+    border-radius: 5px;
+    font-size: 18px;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    transition: .3s;
+}
+
+.carrito-total .btn-close-carrito:hover {
+    scale: 1.02;
+}
+
+#btnCloseGame {
+    text-align: center;
+    background-color: #3b3b3d;
+}
+
+@media screen and (max-width: 455px) {
+    .carrito-total .fila {
+        font-size: 13px;
+    }
+
+    .carrito-total .btn-close-carrito {
+        font-size: 13px;
+        padding: 10px;
+    }
+
+    .carrito .carrito-dias-total {
+        max-width: 30px;
+    }
+}
+
+@media screen and (max-width: 920px) {
+    .contenedor .contenedor-items .item:hover {
+        scale: 1.03;
+    }
+
+    @media screen and (max-width: 610px) {
+        .contenedor .contenedor-items .item:hover {
+            scale: 1.01;
+        }
+    }
+}

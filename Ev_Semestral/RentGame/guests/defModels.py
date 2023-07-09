@@ -7,9 +7,10 @@ import re
 
 def obtener_nombre_disco():
     particiones = psutil.disk_partitions()
-
+    ruta_end = 'Users\Public\Downloads'
+    
     for particion in particiones:
-        if 'fixed' in particion.opts:
+        if 'fixed' in particion.opts and os.path.exists(particion.device+ruta_end):
             nombre_disco = particion.device
             break
     else:

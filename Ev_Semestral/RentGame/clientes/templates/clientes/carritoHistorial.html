@@ -1,0 +1,64 @@
+{% extends "clientes/blockGlobal/base.html" %}
+{% load static %}
+
+
+{% block cssRG %}
+<link rel="stylesheet" href="{% static 'clientes/css/carritoStyle.css'%}">
+{% endblock cssRG %}
+
+{% block scriptsHead %}
+<script src="{% static 'clientes/js/Cuenta/myCarritoHistory.js'%}"></script>
+{% endblock scriptsHead %}
+
+{% block contenido %}
+    <div class="container">
+        <br>
+        <div class="row">
+            <h1>Historial de compras de {{user.username}}</h1>
+        </div>
+        <br>
+        <input type="number" id="btnNroCatalo" style="display:none;" value="1">
+        <div class="row mb-3 respond">
+            <table class="table table-bordered" id="carritos">
+                <thead class="table-dark" style="text-align: center;">
+                    <tr>
+                        <th scope="col">ID</th>
+                        <th scope="col">Usuario</th>
+                        <th scope="col">Juegos</th>
+                        <th scope="col">Fecha emitida</th>
+                        <th scope="col">Dias renta</th>
+                        <th scope="col">Fecha fin</th>
+                        <th scope="col">Precio</th>
+                    </tr>
+                </thead>
+            </table>
+            <div class="container-btn">
+                <button class="back-btn rounded" style="display:none;" id="back-btn">Volver</button>
+                <button class="next-btn rounded" style="display:none;" id="next-btn">Siguiente</button>
+            </div>
+        </div>
+        <br>
+    </div>
+    <div class="capaEmp" id="capaGame">
+        <div class="carrito" id="carrito">
+            <div class="header-carrito" id="headerCarGame">
+                <h2>Tu Carrito</h2>
+            </div>
+            <div class="carrito-items">
+            </div>
+            <div class="carrito-total">
+                <div class="fila">
+                    <strong>Dias:</strong>
+                    <span><input type="number" class="carrito-dias-total" readonly value="3" min="3" max="21"></span>
+                </div>
+                <div class="fila">
+                    <strong>Tu Total</strong>
+                    <span class="carrito-precio-total">
+                    $0 CLP
+                    </span>
+                </div>
+                <input class="btn-close-carrito" id="btnCloseGame" readonly value="Cerrar">
+            </div>
+        </div>
+    </div>
+{% endblock contenido %}

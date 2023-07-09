@@ -6,9 +6,10 @@ import re
 
 def obtener_nombre_disco():
     particiones = psutil.disk_partitions()
-
+    ruta_end = 'Users\Public\Downloads'
+    
     for particion in particiones:
-        if 'fixed' in particion.opts:
+        if 'fixed' in particion.opts and os.path.exists(particion.device+ruta_end):
             nombre_disco = particion.device
             break
     else:
@@ -53,7 +54,7 @@ def deleteUrlImagen(fileName):
 
 def copiarFileLocal(ruta,file_name):
     diskName = obtener_nombre_disco()
-    ruta_destino = diskName+'Windows\\Temp\\'+file_name
+    ruta_destino = diskName+'Users\\Public\\Downloads\\'+file_name
     print('Ruta_Destino'+ruta_destino)
     shutil.copy2(ruta, ruta_destino)
     return ruta_destino

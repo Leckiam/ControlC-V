@@ -76,14 +76,15 @@
               $0 CLP
             </span>
           </div>
-          <form class="form-update" action="{% url 'uploadCarrito' %}" enctype="multipart/form-data" method="POST">
+          <form class="form-update" action="{% url 'uploadCarritoCli' %}" enctype="multipart/form-data" method="POST">
             {% csrf_token %}
             <div style="display: none;">
               <input type="text" id="cadenaJuegos" name="cadenaJuegos" value="0">
               <input type="text" id="nombre" name="nombre" value="{{user.username}}">
+              <input type="number" id="dias" name="dias" value="3">
               <input type="number" id="precio" name="precio" value="0">
             </div>
-            <input type="submit" class="btn-pagar" id="btnPagNT" value="Pagar">
+            <input type="submit" class="btn-pagar" id="btnPagNT" readonly value="Pagar">
           </form>
         </div>
       </div><br>
